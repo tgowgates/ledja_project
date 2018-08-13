@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_155531) do
+ActiveRecord::Schema.define(version: 2018_08_13_161336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2018_08_13_155531) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "bank_name"
+    t.bigint "plaid_item_id"
+    t.index ["plaid_item_id"], name: "index_accounts_on_plaid_item_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -28,6 +32,9 @@ ActiveRecord::Schema.define(version: 2018_08_13_155531) do
   create_table "plaid_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "item"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_plaid_items_on_user_id"
   end
 
   create_table "subscription_packages", force: :cascade do |t|
@@ -82,6 +89,8 @@ ActiveRecord::Schema.define(version: 2018_08_13_155531) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "plaid_items"
+  add_foreign_key "plaid_items", "users"
   add_foreign_key "subscription_packages", "companies"
   add_foreign_key "transactions", "accounts"
   add_foreign_key "transactions", "user_subscriptions"

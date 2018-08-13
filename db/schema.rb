@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_150406) do
+ActiveRecord::Schema.define(version: 2018_08_13_153945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +33,12 @@ ActiveRecord::Schema.define(version: 2018_08_13_150406) do
   create_table "subscription_packages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "category"
+    t.float "price"
+    t.bigint "company_id"
+    t.string "frequency"
+    t.index ["company_id"], name: "index_subscription_packages_on_company_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -57,4 +68,5 @@ ActiveRecord::Schema.define(version: 2018_08_13_150406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "subscription_packages", "companies"
 end

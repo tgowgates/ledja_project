@@ -1,7 +1,5 @@
 class PlaidApiController < ApplicationController
   before_action :set_client, only: [:get_access_token]
-  skip_before_action :verify_authenticity_token, only: [:get_access_token]
-  protect_from_forgery with: :null_session, only: [:get_access_token]
 
   def get_access_token
     exchange_token_response = @client.item.public_token.exchange(params['public_token'])
@@ -26,7 +24,7 @@ class PlaidApiController < ApplicationController
   end
 
   def add_plaid_item_to_user(item)
-    @plaid_item = Plaid_item.new(user: @user, item: plaid_item)
+    @plaid_item = PlaidItem.new(user_id: @user, item: item)
     @plaid_item.save
   end
 

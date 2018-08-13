@@ -2,27 +2,28 @@
 .navbar-ledja {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   transition: all 0.3s ease;
-  background: white;
+  background: $brand-blue;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
 }
 
 .navbar-transparent {
   background: transparent !important;
-  a {
-    color: white;
-  }
-  i {
-    color: #fff;
-  }
 }
 
 /* Logo */
 .navbar-ledja-brand {
-  margin-left: 20px;
+  margin-left: 10px;
+  i {
+    color: $white;
+  }
 }
 
 /* User Avatar */

@@ -9,19 +9,19 @@
   <div class="navbar-ledja-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to "Dashboard", "#", class: "navbar-ledja-item navbar-ledja-link" %>
+      <%= link_to "Dashboard", edit_user_registration_path, class: "navbar-ledja-item navbar-ledja-link" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-ledja-item">
         <div class="dropdown">
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-ledja-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-ledja-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
@@ -35,6 +35,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_up", default: "Sign-Up"), new_user_registration_path, class: "navbar-ledja-item navbar-ledja-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-ledja-item navbar-ledja-link" %>
     <% end %>
   </div>
@@ -43,9 +44,14 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-ledja-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <% if user_signed_in? %>
+          <li><a href="#">Some mobile link</a></li>
+          <li><a href="#">Other one</a></li>
+          <li><a href="#">Other one</a></li>
+        <% else %>
+          <li><%= link_to "Sign-Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign-In", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -1,8 +1,19 @@
-#home-banner {
+#home-wrapper {
   height: 85vh;
+  width: 100%;
+  background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
+}
+
+#home-banner {
+  margin-top: -70px;
+  height: 100%;
   width: 100%;
   background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
   color: white;
   display: flex;
   align-items: center;
+  .navbar-ledja {
+    align-self: flex-start;
+    width: 100%;
+  }
 }

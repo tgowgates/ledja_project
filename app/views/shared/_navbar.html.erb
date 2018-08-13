@@ -1,21 +1,15 @@
-<div class="navbar-ledja">
+<div class="navbar-ledja <%= 'navbar-transparent' if current_page?(root_path) %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-ledja-brand" do %>
     <div id="logo">
       <i class="fas fa-check-double"></i><p>LedJa</p>
     </div>
   <% end %>
-
   <!-- Right Navigation -->
   <div class="navbar-ledja-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
-
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-ledja-item navbar-ledja-link" %>
-      <%= link_to "Trips", "#", class: "navbar-ledja-item navbar-ledja-link" %>
-      <%= link_to "Messages", "#", class: "navbar-ledja-item navbar-ledja-link" %>
-
+      <%= link_to "Dashboard", "#", class: "navbar-ledja-item navbar-ledja-link" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-ledja-item">
         <div class="dropdown">
@@ -44,7 +38,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-ledja-item navbar-ledja-link" %>
     <% end %>
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-ledja-item hidden-md hidden-lg">
     <div class="dropdown">
@@ -57,4 +50,3 @@
     </div>
   </div>
 </div>
-

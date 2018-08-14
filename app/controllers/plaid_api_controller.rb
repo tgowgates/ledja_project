@@ -5,17 +5,15 @@ class PlaidApiController < ApplicationController
     exchange_token_response = @client.item.public_token.exchange(params['public_token'])
     @access_token = exchange_token_response['access_token']
     item_id = exchange_token_response['item_id']
-    puts "access token: #{@access_token}"
-    puts "item id: #{item_id}"
     exchange_token_response.to_json
-    transactions
+    get_transactions
   end
 
-  def transactions
+  def get_transactions
     now = Date.today
-    thirty_days_ago = (now - 30)
+    start_date = 2.years.ago
     begin
-      @transactions_response = @client.transactions.get(@access_token, thirty_days_ago, now)
+      @transactions_response = @client.transactions.get(@access_token, start_date, now)
     rescue Plaid::ItemError => e
       @transactions_response = { error: {error_code: e.error_code, error_message: e.error_message}}
     end

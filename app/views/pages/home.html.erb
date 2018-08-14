@@ -1,14 +1,14 @@
 <div class="row">
   <div id="home-wrapper">
     <%= render 'shared/navbar' %>
-      <div id="home-banner">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-          <div id="banner-content-left">
-            <h1>Track All</h1>
-            <h1>Your Subscriptions</h1>
-            <h3>Automatically in less than a minute</h3>
-            <div class="home-button-get-started">
-              <%= link_to "Get Started",  new_user_registration_path , class: 'btn btn-primary' %>
+    <div id="home-banner">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-2">
+        <div id="banner-content-left">
+          <h1>Track All</h1>
+          <h1>Your Subscriptions</h1>
+          <h4>Automatically in less than a minute</h4>
+          <div class="home-button-get-started">
+            <%= link_to "Get Started",  new_user_registration_path , class: 'btn btn-primary btn-started' %>
           </div>
         </div>
       </div>

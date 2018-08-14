@@ -1,0 +1,67 @@
+<div class="flex-container">
+
+  <div class="sidebar flex-container">
+    <div class="flex item" title="active">
+      <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
+        <i class="far fa-credit-card fa-2x"></i>
+      <% end %>
+    </div>
+
+    <div class="flex item" title="inactive">
+      <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
+        <i class="far fa-credit-card fa-2x"></i>
+      <% end %>
+    </div>
+
+    <div class="flex item"title="manage">
+      <%= link_to "#manage", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'manage' do %>
+        <i class="far fa-credit-card fa-2x"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="active">
+          <h1>My active accounts</h1>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="inactive">
+          <h1>My inactive accounts</h1>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="manage">
+          <h1>Manage my accounts</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--  <div> -->
+
+  <!-- Nav tabs -->
+<!--   <ul class="nav nav-tabs" role="tablist">
+
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+
+
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul> -->
+
+  <!-- Tab panes -->
+<!--   <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    ..gkggkgkjgjgjgjhg.
+  </div>
+    <div role="tabpanel" class="tab-pane" id="profile">..
+    .</div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+    ...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">
+    ...</div>
+  </div>
+
+</div> -->

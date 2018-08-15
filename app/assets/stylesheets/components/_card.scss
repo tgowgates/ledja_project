@@ -10,6 +10,7 @@
   background-color: $white;
 }
 .card {
+  width: 800px;
   display: flex;
   align-items: center;
   padding: 0px;
@@ -20,25 +21,28 @@
 }
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-  i {
-    color: $brand-blue;
-    opacity: 1;
-    font-size: 40px;
-    padding: 0px;
-    margin-right: 5px;
-    justify-content: center;
-    border-color: transparent;
-    background-color: transparent;
-  }
+  border-right: solid;
+  border-size: 10px;
+  border-color: $brand-blue;
+  // i {
+  //   color: $brand-blue;
+  //   opacity: 1;
+  //   font-size: 40px;
+  //   padding: 0px;
+  //   margin-right: 5px;
+  //   justify-content: center;
+  //   border-color: transparent;
+  //   background-color: transparent;
+  // }
 }
 .card:last-child {
   border-bottom: none;
   margin-bottom: 0px;
 }
 .subscription-company-name {
-  flex-grow: 1;
-  padding-left: 10px;
-  min-width: 100px;
+  margin-left: 25px;
+  width: 170px;
+
 }
 .subscription-company-name h3 {
   color: $medium-gray;
@@ -51,20 +55,16 @@
   margin-top: 5px;
 }
 .length-cost-next-column {
-  flex-grow: 1;
+  width: 170px;
   padding-left: 10px;
 }
 .length-cost-next-column h4 {
-  font-weight: lighter;
   color: $medium-gray;
 }
 .length-cost-next-column p {
   color: $lighter-gray;
 }
-.alternative-saving-column {
-  color: $black;
-  padding-right: 10px;
-}
+
 
 .card i {
   color: transparent;

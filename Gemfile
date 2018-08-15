@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# adding Pundit
+gem 'pundit'
+
 # adding Plaid
 gem 'plaid'
 

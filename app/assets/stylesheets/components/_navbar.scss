@@ -15,7 +15,11 @@
 }
 
 .navbar-transparent {
-  background: transparent !important;
+  background: transparent;
+}
+
+.navbar-wagon-brand {
+  background-color: $brand-blue;
 }
 
 /* Logo */

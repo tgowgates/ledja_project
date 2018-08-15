@@ -1,1 +1,13 @@
-<%= @transactions %>
+<h1>hello</h1>
+  <ul>
+    <% @transactions.each do |transaction| %>
+      <li><%= transaction['name'] %></li>
+    <% end %>
+  </ul>
+
+<h1>filtered</h1>
+  <ul>
+    <% @filtered.each do |transaction| %>
+      <li><%= transaction['name'] %></li>
+    <% end %>
+  </ul>

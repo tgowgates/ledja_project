@@ -1,11 +1,12 @@
 .footer {
+  position: absolute;
   background: linear-gradient(#4691C4, #4691C4);
   padding: 20px 30px;
   color: rgba(0,0,0,0.3);
   color: white;
   width: 100%;
-  position: absolute;
-  bottom: 0
+  overflow: hidden;
+  bottom: 0;
 }
 
 .footer-social-links {

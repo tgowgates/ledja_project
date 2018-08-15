@@ -8,7 +8,12 @@
           <h1>Your Subscriptions</h1>
           <h4>Automatically in less than a minute</h4>
           <div class="home-button-get-started">
-            <%= link_to "Get Started",  new_user_registration_path , class: 'btn btn-primary btn-started' %>
+            <% unless user_signed_in? %>
+            <!-- Link when new session -->
+            <%= link_to "Get Started", new_user_registration_path , class: 'btn btn-primary btn-started' %>
+            <% else %>
+            <%= link_to "Get Started", subscriptions_index_path , class: 'btn btn-primary btn-started' %>
+             <% end %>
           </div>
         </div>
       </div>

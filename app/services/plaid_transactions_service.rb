@@ -1,10 +1,10 @@
 class PlaidTransactionsService
-  def initialize(token)
-    @token = token
+  def initialize(public_token)
+    @public_token = public_token
   end
 
   def subscription_transactions
-    exchange_response = client.item.public_token.exchange(@token)
+    exchange_response = client.item.public_token.exchange(@public_token)
     access_token = exchange_response.access_token
     transactions = request_transactions(access_token)
     filter_transactions(transactions)
@@ -24,19 +24,19 @@ class PlaidTransactionsService
   def filter_transactions(transactions)
     filtered_transactions = []
     transactions.each do |transaction|
-      if filter_by_category || filter_by_name(transaction)
+      if filter_by_category(transaction) || filter_by_name(transaction)
         filtered_transactions << transaction
       end
     end
     filtered_transactions
   end
 
-  def filter_by_category(transction)
-    transaction['category'].downcase.include? "subscription".downcase
+  def filter_by_category(transaction)
+    transaction['category'].any? == "Subscriptions"
   end
 
   def filter_by_name(transaction)
-    transaction_filters = ["SPOTIFY", "AMAZON PRIME", "HULU", "NETFLIX", "MYHERITAGE", "AMAZON DIGITAL SVCS"]
+    transaction_filters = ["SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS"]
     transaction_filters.any? { |search_item| transaction['name'].downcase.include? search_item.downcase }
   end
 

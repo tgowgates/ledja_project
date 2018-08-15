@@ -16,5 +16,6 @@ class PlaidApiController < ApplicationController
       new_transaction.save!
     end
   end
+
 end
 

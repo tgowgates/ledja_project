@@ -1,0 +1,36 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  .sidebar {
+    width: 120px;
+    background-color: white;
+    border-right: 1px solid $lightest-gray;
+  }
+
+  .main-content {
+    flex: 1 0 auto;
+    background-color: white;
+  }
+
+  .detailed-content {
+    width: 400px;
+    background-color: $lightest-gray;
+  }
+}
+
+.sidebar.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-credit-card {
+  padding-bottom: 60px;
+}
+
+
+
+

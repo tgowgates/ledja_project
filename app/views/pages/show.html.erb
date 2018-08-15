@@ -1,0 +1,23 @@
+<h1>filtered</h1>
+<ul>
+  <% @filtered_transactions.each do |transaction| %>
+    <li><%= transaction['name'] %></li>
+    <ul>
+      <li><%= transaction['date'] %></li>
+      <li><%= transaction['category'] %></li>
+      <li><%= transaction['amount'] %></li>
+    </ul>
+  <% end %>
+</ul>
+
+<h1>all</h1>
+<ul>
+  <% @transactions.each do |transaction| %>
+    <li><%= transaction['name'] %></li>
+    <ul>
+      <li><%= transaction['date'] %></li>
+      <li><%= transaction['category'] %></li>
+      <li><%= transaction['amount'] %></li>
+    </ul>
+  <% end %>
+</ul>

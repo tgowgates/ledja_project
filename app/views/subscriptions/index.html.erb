@@ -1,0 +1,44 @@
+<div class="flex-container">
+
+  <div class="sidebar flex-container">
+    <div class="flex item" title="active">
+      <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
+        <i class="far fa-credit-card fa-2x"></i>
+      <% end %>
+    </div>
+
+    <div class="flex item" title="inactive">
+      <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
+        <i class="far fa-credit-card fa-2x"></i>
+      <% end %>
+    </div>
+
+    <div class="flex item"title="manage">
+      <%= link_to "#manage", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'manage' do %>
+        <i class="far fa-credit-card fa-2x"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="active">
+          <h1>My active accounts</h1>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="inactive">
+          <h1>My inactive accounts</h1>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="manage">
+          <h1>Manage my accounts</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detailed-content">
+  </div>
+</div>
+
+
+

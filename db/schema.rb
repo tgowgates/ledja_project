@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_132247) do
+
+ActiveRecord::Schema.define(version: 2018_08_15_072316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +59,9 @@ ActiveRecord::Schema.define(version: 2018_08_14_132247) do
     t.bigint "account_id"
     t.string "merchant_name"
     t.bigint "user_subscription_id"
+    t.bigint "user_id"
     t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
     t.index ["user_subscription_id"], name: "index_transactions_on_user_subscription_id"
   end
 
@@ -98,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_132247) do
   add_foreign_key "subscription_packages", "companies"
   add_foreign_key "transactions", "accounts"
   add_foreign_key "transactions", "user_subscriptions"
+  add_foreign_key "transactions", "users"
   add_foreign_key "user_subscriptions", "subscription_packages"
   add_foreign_key "user_subscriptions", "users"
 end

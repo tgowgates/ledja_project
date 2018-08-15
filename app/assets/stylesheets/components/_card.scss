@@ -40,7 +40,7 @@
   margin-bottom: 0px;
 }
 .subscription-company-name {
-  margin-left: 25px;
+  margin-left: 40px;
   width: 170px;
 
 }
@@ -57,26 +57,35 @@
 .length-cost-next-column {
   width: 170px;
   padding-left: 10px;
+  h4 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
 }
-.length-cost-next-column h4 {
-  color: $medium-gray;
-}
-.length-cost-next-column p {
-  color: $lighter-gray;
+.switch-column {
+  width: 140px;
+  padding-left: 10px;
+  h4 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
 }
 
-
-.card i {
-  color: transparent;
-  font-size: 40px;
-  opacity: 0.8;
-  transition: all 0.15s ease;
-  border-color: transparent;
-  padding: 0px;
-  margin-right: 5px;
-  justify-content: center;
-  background-color: transparent;
-}
+// .card i {
+//   color: transparent;
+//   font-size: 40px;
+//   opacity: 0.8;
+//   transition: all 0.15s ease;
+//   border-color: transparent;
+//   padding: 0px;
+//   margin-right: 5px;
+//   justify-content: center;
+//   background-color: transparent;
+// }
 // .three-dots {
 //   font-size: 40px;
 //   color: $brand-blue;

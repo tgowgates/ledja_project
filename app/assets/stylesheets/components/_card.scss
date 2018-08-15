@@ -1,0 +1,65 @@
+.subscription-logo {
+  max-width: 250px;
+  max-height: 100px;
+  padding-left: 15px;
+  background: transparent;
+}
+.card-container {
+  margin: 0px;
+  background-color: $white;
+}
+.card {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 0px 160px 10px 25px ;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  background-color: $white;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+}
+.card:last-child {
+  border-bottom: none;
+  margin-bottom: 0px;
+}
+.subscription-company-name {
+  flex-grow: 1;
+  padding-left: 10px;
+  min-width: 100px;
+}
+.subscription-company-name h2 {
+  color: $medium-gray;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.subscription-company-name p {
+  font-weight: lighter;
+  opacity: 0.7;
+  margin-top: 5px;
+}
+.length-cost-next-column {
+  flex-grow: 1;
+  padding-left: 10px;
+}
+.length-cost-next-column h4 {
+  font-weight: lighter;
+  color: $medium-gray;
+}
+.length-cost-next-column p {
+  color: $lighter-gray;
+}
+.alternative-saving-column {
+  color: $black;
+  padding-right: 10px;
+}
+.three-dots {
+  font-size: 40px;
+  color: $brand-blue;
+  opacity: 0.8;
+  padding-right: 15px;
+  padding-left: 20px;
+  justify-content: center;
+}
+.three-dots:hover {
+  color: $brand-blue;
+  opacity: 1;
+}

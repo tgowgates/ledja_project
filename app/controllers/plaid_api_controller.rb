@@ -1,14 +1,19 @@
 class PlaidApiController < ApplicationController
 
   def callback
-    service = PlaidTransactionsService.new(params[:public_token], current_user)
-    filtered_transactions = service.subscription_transactions(["SPOTIFY", "Amazon Prime", "HULU", "NETFLIX", "MYHERITAGELTD", "MAZON DIGITAL SVCS"])
+    service = PlaidTransactionsService.new(params[:public_token])
+    filtered_transactions = service.subscription_transactions
+    save_filtered_transactions(filtered_transactions)
+  end
+
+  def save_filtered_transactions(filtered_transactions)
     filtered_transactions.each do |transaction|
       new_transaction = Transaction.new(amount: transaction['amount'],
         date: transaction['date'],
         description: transaction['name'],
-        category: transaction['transaction_id'] )
-      new_transaction.save
+        category: transaction['transaction_id'],
+        user_id: current_user )
+      new_transaction.save!
     end
   end
 end

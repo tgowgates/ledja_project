@@ -1,12 +1,10 @@
-<div class="flex-container">
-
+<div class="flex-container" id="<%='existing-user' if current_user.first_run = true %>">
   <div class="sidebar flex-container">
     <div class="flex item" title="active">
       <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
         <i class="far fa-credit-card fa-2x"></i>
       <% end %>
     </div>
-
     <div class="flex item" title="inactive">
       <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
         <i class="far fa-credit-card fa-2x"></i>
@@ -47,5 +45,33 @@
   </div>
 </div>
 
+
+<div id="returning-user"></div>
+<button id="link-btn">Link Account</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script>
+(function($) {
+    var handler = Plaid.create({
+        apiVersion: 'v2',
+        clientName: 'Plaid Walkthrough Demo',
+        env: 'sandbox',
+        product: ['transactions'],
+        key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
+        onSuccess: function(public_token) {
+            $.post('/callback', { public_token: public_token }, function() {
+            });
+        },
+    });
+
+    // if document.querySeletor() != 'undefined'
+    document.addEventListener('DOMContentLoaded', function(e) {
+      if (document.getElementById('existing-user') == undefined) {
+        handler.open();
+      }
+    });
+  })(jQuery);
+</script>
 
 

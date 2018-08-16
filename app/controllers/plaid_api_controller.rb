@@ -12,7 +12,6 @@ class PlaidApiController < ApplicationController
         amount: transaction['amount'],
         date: transaction['date'],
         description: transaction['name'],
-        account_id: transaction['account_id'],
         category: transaction['category'],
         user_id: current_user )
       new_transaction.save!

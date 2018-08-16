@@ -1,5 +1,5 @@
 #home-wrapper {
-  height: 90vh;
+  height: 85vh;
   width: 100%;
   background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
 }
@@ -12,6 +12,7 @@
   color: white;
   display: flex;
   align-items: center;
+  justify-content: left;
   .navbar-ledja {
     align-self: flex-start;
     width: 100%;
@@ -21,11 +22,20 @@
 #banner-content-left {
 
   h1 {
-    margin-top: 5px;
     letter-spacing: 0.7px;
   }
   h4 {
-    letter-spacing: 0.5px;
     margin-bottom: 24px;
   }
+}
+
+#home-second-wrapper {
+  display: flex;;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-third-wrapper {
+  color: white;
+  text-align: center;
 }

@@ -9,6 +9,23 @@
   margin-bottom: 20px;
   background-color: $white;
 }
+
+.card-home {
+  background-color: $white;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex: auto;
+}
+
+.card-home-icon {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+}
 .card {
   width: 800px;
   display: flex;

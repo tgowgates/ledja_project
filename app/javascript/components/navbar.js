@@ -3,9 +3,9 @@ function initUpdateNavbarOnScroll() {
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
-        navbar.classList.add('navbar-wagon-brand');
+        navbar.classList.remove('navbar-transparent');
       } else {
-        navbar.classList.remove('navbar-wagon-brand');
+        navbar.classList.add('navbar-transparent');
       }
     });
   }

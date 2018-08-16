@@ -1,14 +1,15 @@
 #home-wrapper {
   height: 85vh;
   width: 100%;
-  background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
+  // background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
+  background: linear-gradient(90deg, #4d3ff5, #5fd4fa);
+
 }
 
 #home-banner {
   margin-top: -70px;
   height: 100%;
   width: 100%;
-  background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
   color: white;
   display: flex;
   align-items: center;

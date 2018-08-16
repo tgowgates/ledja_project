@@ -1,4 +1,4 @@
-<div class="flex-container" id="<%='existing-user' if current_user.first_run = true %>">
+<div class="flex-container" id="<%='existing-user' if @current_user.api_last_run !=nil %>">
   <div class="sidebar flex-container hidden-xs">
     <div class="flex item" title="active">
       <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>

@@ -16,7 +16,7 @@ class PlaidApiController < ApplicationController
         category: transaction['category'],
         user_id: current_user )
       new_transaction.save!
-      current_user.first_run = true
+      current_user.api_last_run = Date.today
       current_user.save
     end
   end

@@ -20,22 +20,21 @@
 
 #home-second-wrapper {
   height: 100%;
-  min-height: 750px;
-  display: flex;
+  min-height: 950px;
+  display: flex;;
   align-items: center;
+  justify-content: center;
 }
 
 #home-third-wrapper {
   height: 100%;
   min-height: 500px;
-  background: radial-gradient(979.75px at 19.91% 13.29%, #2EDD97 0%, #2893C9 100%);
+  background: radial-gradient(979.75px at 19.91% 13.29%, #4d3ff5 0%, #5fd4fa 100%);
   display: flex;
   align-items: center;
   justify-contnet: center;
-  text-align: left;
-}
-
-#home-fourth-wrapper {
+  color: white;
+  text-align: center;
 }
 
 #home-footer-padding {

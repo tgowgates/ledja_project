@@ -9,6 +9,23 @@
   margin-bottom: 20px;
   background-color: $white;
 }
+
+.card-home {
+  background-color: $white;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex: auto;
+}
+
+.card-home-icon {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+}
 .card {
   width: 800px;
   display: flex;
@@ -22,8 +39,10 @@
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   border-right: solid;
-  border-size: 10px;
   border-color: $brand-blue;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
   // i {
   //   color: $brand-blue;
   //   opacity: 1;
@@ -34,12 +53,13 @@
   //   border-color: transparent;
   //   background-color: transparent;
   // }
-}
+
 .card:last-child {
   border-bottom: none;
   margin-bottom: 0px;
 }
 .subscription-company-name {
+  text-align: center;
   margin-left: 40px;
   width: 170px;
 
@@ -51,10 +71,10 @@
 }
 .subscription-company-name p {
   font-weight: lighter;
-  opacity: 0.7;
   margin-top: 5px;
 }
 .length-cost-next-column {
+  text-align: end;
   width: 170px;
   padding-left: 10px;
   h4 {
@@ -65,8 +85,10 @@
   }
 }
 .switch-column {
+  text-align: end;
   width: 140px;
   padding-left: 10px;
+  margin-right: 10px;
   h4 {
     color: $medium-gray;
   }

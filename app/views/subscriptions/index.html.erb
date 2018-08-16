@@ -1,5 +1,4 @@
-<div class="flex-container">
-
+<div class="flex-container" id=" <%= 'returning-user' if current_user.first_run %>">
   <div class="sidebar flex-container">
     <div class="flex item" title="active">
       <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
@@ -46,6 +45,36 @@
   <div class="detailed-content">
   </div>
 </div>
+
+
+<div id="returning-user"></div>
+<button id="link-btn">Link Account</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script>
+(function($) {
+    var handler = Plaid.create({
+        apiVersion: 'v2',
+        clientName: 'Plaid Walkthrough Demo',
+        env: 'development',
+        product: ['transactions'],
+        key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
+        onSuccess: function(public_token) {
+            $.post('/callback', { public_token: public_token }, function() {
+            });
+        },
+    });
+
+
+    // if document.querySeletor() != 'undefined'
+    document.addEventListener('DOMContentLoaded', function(e) {
+      if (document.getElementById('returning-user') !== null) {
+        handler.open();
+      }
+    });
+  })(jQuery);
+  </script>
 
 
 

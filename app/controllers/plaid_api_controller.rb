@@ -8,10 +8,12 @@ class PlaidApiController < ApplicationController
 
   def save_filtered_transactions(filtered_transactions)
     filtered_transactions.each do |transaction|
-      new_transaction = Transaction.new(amount: transaction['amount'],
+      new_transaction = Transaction.new(
+        amount: transaction['amount'],
         date: transaction['date'],
         description: transaction['name'],
-        category: transaction['transaction_id'],
+        account_id: transaction['account_id'],
+        category: transaction['category'],
         user_id: current_user )
       new_transaction.save!
     end

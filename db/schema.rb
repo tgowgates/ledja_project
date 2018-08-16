@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_08_15_072316) do
+ActiveRecord::Schema.define(version: 2018_08_16_120525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_072316) do
   create_table "transactions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "amount"
     t.string "description"
     t.string "category"
     t.date "date"
@@ -60,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_072316) do
     t.string "merchant_name"
     t.bigint "user_subscription_id"
     t.bigint "user_id"
+    t.float "amount"
     t.index ["account_id"], name: "index_transactions_on_account_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
     t.index ["user_subscription_id"], name: "index_transactions_on_user_subscription_id"
@@ -88,10 +87,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_072316) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.text "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

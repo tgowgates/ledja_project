@@ -7,6 +7,7 @@ class PlaidTransactionsService
     exchange_response = client.item.public_token.exchange(@public_token)
     access_token = exchange_response.access_token
     transactions = request_transactions(access_token)
+    byebug
     filter_transactions(transactions)
   end
 
@@ -37,7 +38,7 @@ class PlaidTransactionsService
   end
 
   def filter_by_name(transaction)
-    transaction_filters = ["McDonald", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS"]
+    transaction_filters = ["SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS"]
     transaction_filters.any? { |search_item| transaction['name'].downcase.include? search_item.downcase }
   end
 
@@ -45,7 +46,7 @@ class PlaidTransactionsService
 
   def client
     @client ||= Plaid::Client.new(
-      env: :development,
+      env: :sandbox,
       client_id: ENV['PLAID_CLIENT_ID'],
       secret: ENV['PLAID_SECRET'],
       public_key: ENV['PLAID_PUBLIC_KEY']

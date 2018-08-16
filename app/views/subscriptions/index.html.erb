@@ -1,11 +1,10 @@
-<div class="flex-container" id=" <%= 'returning-user' if current_user.first_run %>">
+<div class="flex-container" id="<%='existing-user' if current_user.first_run = true %>">
   <div class="sidebar flex-container">
     <div class="flex item" title="active">
       <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
         <i class="far fa-credit-card fa-2x"></i>
       <% end %>
     </div>
-
     <div class="flex item" title="inactive">
       <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
         <i class="far fa-credit-card fa-2x"></i>
@@ -57,7 +56,7 @@
     var handler = Plaid.create({
         apiVersion: 'v2',
         clientName: 'Plaid Walkthrough Demo',
-        env: 'development',
+        env: 'sandbox',
         product: ['transactions'],
         key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
         onSuccess: function(public_token) {
@@ -66,15 +65,13 @@
         },
     });
 
-
     // if document.querySeletor() != 'undefined'
     document.addEventListener('DOMContentLoaded', function(e) {
-      if (document.getElementById('returning-user') !== null) {
+      if (document.getElementById('existing-user') == undefined) {
         handler.open();
       }
     });
   })(jQuery);
-  </script>
-
+</script>
 
 

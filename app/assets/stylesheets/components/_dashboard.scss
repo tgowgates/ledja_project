@@ -4,14 +4,19 @@
   height: 100vh;
 
   .sidebar {
-    width: 120px;
+    width: 160px;
     background-color: white;
     border-right: 1px solid $lightest-gray;
+    i {
+      color: $lighter-gray;
+    }
   }
 
   .main-content {
     flex: 1 0 auto;
     background-color: white;
+    padding: 0px;
+    margin: 0px;
   }
 
   .detailed-content {
@@ -35,7 +40,6 @@
   margin-bottom: 45px;
   color: $black;
 }
-
 
 
 

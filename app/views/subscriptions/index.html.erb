@@ -1,6 +1,5 @@
 <div class="flex-container">
-
-  <div class="sidebar flex-container">
+  <div class="sidebar flex-container hidden-xs">
     <div class="flex item" title="active">
       <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
         <i class="far fa-credit-card fa-2x"></i>
@@ -29,8 +28,6 @@
           <%= render 'shared/card' %>
           <%= render 'shared/card' %>
           <%= render 'shared/card' %>
-          <%= render 'shared/card' %>
-          <%= render 'shared/card' %>
         </div>
         <div role="tabpanel" class="tab-pane" id="inactive">
           <h1>My inactive subscriptions</h1>
@@ -41,9 +38,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="detailed-content">
   </div>
 </div>
 

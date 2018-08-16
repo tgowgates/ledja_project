@@ -6,16 +6,28 @@
       <p>Prime Deliveries</p>
     </div>
     <div class="length-cost-next-column">
+      <h4>10 days</h4>
+    </div>
+    <div class="length-cost-next-column">
       <h4>€8.99/mo</h4>
-      <p>€107.88/year</p>
+      <p></p>
     </div>
-    <div class="length-cost-next-column">
-      <h4>in 10 days</h4>
-      <p>the 20th every month</p>
+    <div class="switch-column">
+      <style>
+        .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+        .toggle.ios .toggle-handle { border-radius: 20px; }
+      </style>
+      <input type="checkbox" checked data-toggle="toggle" data-style="ios">
+      <style>
+        .toggle.android { border-radius: 0px;}
+        .toggle.android .toggle-handle { border-radius: 0px; }
+      </style>
     </div>
-    <div class="length-cost-next-column">
-      <p>Switch</p>
-    </div>
-    <div><i class="fas fa-ellipsis-v three-dots btn"></i></div>
+<!--     <div><i class="fas fa-ellipsis-v three-dots btn"></i></div> -->
   </div>
 </div>
+<script>
+  $(document).on('ready page:change', function() {
+    $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
+  });
+</script>

@@ -7,7 +7,6 @@ class PlaidTransactionsService
     exchange_response = client.item.public_token.exchange(@public_token)
     access_token = exchange_response.access_token
     transactions = request_transactions(access_token)
-    byebug
     filter_transactions(transactions)
   end
 
@@ -19,7 +18,6 @@ class PlaidTransactionsService
     rescue Plaid::ItemError => e
       transactions_response = { error: {error_code: e.error_code, error_message: e.error_message}}
     end
-    PlaidItem.create(user: User.last, item: transactions_response.to_json)
     transactions_response.as_json['transactions']
   end
 

@@ -9,6 +9,13 @@
     border-right: 1px solid $lightest-gray;
     i {
       color: $lighter-gray;
+      font-size: 24px;
+    }
+  }
+
+  .dash-tab[title = "active"] {
+    i {
+      color: $dark-gray;
     }
   }
 
@@ -35,11 +42,7 @@
 .fa-credit-card {
   padding-bottom: 60px;
 }
-.tab-pane h1 {
-  margin-left: 25px;
-  margin-bottom: 45px;
+.tab-pane h1, h3, h4 {
+  margin: 45px;
   color: $black;
 }
-
-
-

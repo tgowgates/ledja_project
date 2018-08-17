@@ -1,12 +1,13 @@
 .subscription-logo {
-  max-width: 150px;
-  max-height: 60px;
+  width: 150px;
+  height: 60px;
   padding-left: 15px;
   background: transparent;
 }
 .card-container {
   margin: 0px;
-  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-bottom: 40px;
   background-color: $white;
 }
 
@@ -25,17 +26,40 @@
   width: 100px;
   height: 100px;
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .card {
-  width: 800px;
+  max-width: 1000px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 130px;
   padding: 0px;
   margin: 0px 25px 10px 25px ;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   background-color: $white;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
 }
+
+.card-legend {
+  max-width: 1000px;
+  border-bottom: 1px solid $lighter-gray;
+  margin: 0px 25px 10px 25px ;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  p {
+    margin-bottom: 1px;
+  }
+}
+
+
+.card-content {
+  display: flex;
+  align-content: space-around;
+}
+
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   border-right: solid;
@@ -74,6 +98,7 @@
   margin-top: 5px;
 }
 .length-cost-next-column {
+  font-weight: lighter;
   text-align: end;
   width: 170px;
   padding-left: 10px;
@@ -84,17 +109,47 @@
     color: $lighter-gray;
   }
 }
-.switch-column {
+.saving-column {
+  font-weight: lighter;
   text-align: end;
   width: 140px;
   padding-left: 10px;
-  margin-right: 10px;
   h4 {
     color: $medium-gray;
   }
   p {
     color: $lighter-gray;
   }
+}
+.next-payment-column {
+  font-weight: lighter;
+  text-align: end;
+  width: 160px;
+  padding-left: 10px;
+  h4 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
+}
+.cost-column {
+  font-weight: lighter;
+  text-align: end;
+  width: 160px;
+  padding-left: 10px;
+  padding-right: 10px;
+  h4 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
+}
+.switch-column {
+  text-align: end;
+  padding-left: 10px;
+  margin-right: 15px;
 }
 
 // .card i {

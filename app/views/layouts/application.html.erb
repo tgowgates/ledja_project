@@ -8,12 +8,7 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-
-    <%= javascript_include_tag 'application' %>
-
-    <%= favicon_link_tag 'https://res.cloudinary.com/dxayumlub/image/upload/v1534359657/Ledja/favicon.ico' %>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
   </head>
   <body>
     <% if !current_page?(root_path) %>
@@ -24,6 +19,8 @@
     <% if !current_page?(root_path) %>
       <%=render 'shared/footer'%>
     <% end %>
-
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= favicon_link_tag 'https://res.cloudinary.com/dxayumlub/image/upload/v1534359657/Ledja/favicon.ico' %>
   </body>
 </html>

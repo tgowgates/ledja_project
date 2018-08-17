@@ -1,0 +1,114 @@
+.subscription-logo-legend {
+  width: 150px;
+  height: 60px;
+  padding-left: 15px;
+  background: transparent;
+}
+
+// .card-home-legend {
+//   background-color: $white;
+//   border-bottom: 1px solid rgba(220,224,244,0.4);
+//   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+//   padding: 30px;
+//   margin: 30px;
+//   display: flex;
+//   justify-content: space-between;
+//   flex: auto;
+// }
+
+// .card-home-icon-legend {
+//   width: 100px;
+//   height: 100px;
+//   background-size: contain;
+// }
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  margin: 0px 25px 10px 25px ;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  background-color: $white;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+
+}
+.subscription-company-name-legend {
+  text-align: center;
+  margin-left: 40px;
+  width: 170px;
+
+}
+.subscription-company-name-legend h3 {
+  color: $medium-gray;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.subscription-company-name-legend p {
+  font-weight: lighter;
+  margin-top: 5px;
+}
+.saving-column-legend {
+  font-weight: lighter;
+  text-align: end;
+  width: 140px;
+  padding-left: 10px;
+  h5 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
+}
+.next-payment-column-legend {
+  font-weight: lighter;
+  text-align: end;
+  width: 160px;
+  padding-left: 10px;
+  h4 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
+}
+.cost-column-legend {
+  font-weight: lighter;
+  text-align: end;
+  width: 160px;
+  padding-left: 10px;
+  padding-right: 10px;
+  h4 {
+    color: $medium-gray;
+  }
+  p {
+    color: $lighter-gray;
+  }
+}
+.switch-column-legend {
+  text-align: end;
+  padding-left: 10px;
+  margin-right: 15px;
+}
+
+// .card i {
+//   color: transparent;
+//   font-size: 40px;
+//   opacity: 0.8;
+//   transition: all 0.15s ease;
+//   border-color: transparent;
+//   padding: 0px;
+//   margin-right: 5px;
+//   justify-content: center;
+//   background-color: transparent;
+// }
+// .three-dots {
+//   font-size: 40px;
+//   color: $brand-blue;
+//   opacity: 0.8;
+//   padding: 0px;
+//   margin-right: 15px;
+//   margin-left: 20px;
+//   justify-content: center;
+//   border-color: transparent;
+//   background-color: transparent;
+// }

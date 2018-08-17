@@ -1,19 +1,17 @@
-<div class="flex-container">
-
-  <div class="sidebar flex-container">
-    <div class="flex item" title="active">
+<div class="flex-container" id="<%='existing-user' if @current_user.api_last_run !=nil %>">
+  <div class="sidebar flex-container hidden-xs">
+    <div class="flex item dash-tab" title="active">
       <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
         <i class="far fa-credit-card fa-2x"></i>
       <% end %>
     </div>
-
-    <div class="flex item" title="inactive">
+    <div class="flex item dash-tab" title="inactive">
       <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
         <i class="far fa-credit-card fa-2x"></i>
       <% end %>
     </div>
 
-    <div class="flex item"title="manage">
+    <div class="flex item dash-tab" title="manage">
       <%= link_to "#manage", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'manage' do %>
         <i class="far fa-credit-card fa-2x"></i>
       <% end %>
@@ -24,28 +22,47 @@
     <div class="col-xs-12">
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="active">
-          <h1>My active subscriptions</h1>
-          <%= render 'shared/card' %>
-          <%= render 'shared/card' %>
-          <%= render 'shared/card' %>
+          <h4 class="dash-title"><strong>My active subscriptions</strong></h4>
+          <%= render 'shared/card-col-legend' %>
           <%= render 'shared/card' %>
           <%= render 'shared/card' %>
           <%= render 'shared/card' %>
         </div>
         <div role="tabpanel" class="tab-pane" id="inactive">
-          <h1>My inactive subscriptions</h1>
+          <h4 class="dash-title"><strong>My inactive subscriptions</strong></h4>
           <%= render 'shared/card' %>
         </div>
         <div role="tabpanel" class="tab-pane" id="manage">
-          <h1>Manage my accounts</h1>
+          <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="detailed-content">
-  </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script>
+(function($) {
+    var handler = Plaid.create({
+        apiVersion: 'v2',
+        clientName: 'Plaid Walkthrough Demo',
+        env: 'sandbox',
+        product: ['transactions'],
+        key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
+        onSuccess: function(public_token) {
+            $.post('/callback', { public_token: public_token }, function() {
+            });
+        },
+    });
+
+    // if document.querySeletor() != 'undefined'
+    document.addEventListener('DOMContentLoaded', function(e) {
+      if (document.getElementById('existing-user') == undefined) {
+        handler.open();
+      }
+    });
+  })(jQuery);
+</script>
 
 

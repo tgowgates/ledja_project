@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid $lightest-gray;
   a {
     color: $medium-gray;
     text-decoration: none;
@@ -17,6 +18,7 @@
 .navbar-transparent {
   background: transparent;
   box-shadow: none;
+  border-bottom: 0;
 }
 
 .navbar-transparent a {

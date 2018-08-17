@@ -1,4 +1,4 @@
-
+<div id="returning-user"></div>
 <button id="link-btn">Link Account</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
@@ -17,8 +17,12 @@
         },
     });
 
-    $('#link-btn').on('click', function(e) {
+
+    // if document.querySeletor() != 'undefined'
+    document.addEventListener('DOMContentLoaded', function(e) {
+      if (document.getElementById('returning-user') !== null) {
         handler.open();
+      }
     });
   })(jQuery);
   </script>

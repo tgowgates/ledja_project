@@ -7,11 +7,23 @@
     width: 120px;
     background-color: white;
     border-right: 1px solid $lightest-gray;
+    i {
+      color: $lighter-gray;
+      font-size: 24px;
+    }
+  }
+
+  .dash-tab[title = "active"] {
+    i {
+      color: $dark-gray;
+    }
   }
 
   .main-content {
     flex: 1 0 auto;
     background-color: white;
+    padding: 0px;
+    margin: 0px;
   }
 
   .detailed-content {
@@ -30,12 +42,15 @@
 .fa-credit-card {
   padding-bottom: 60px;
 }
-.tab-pane h1 {
-  margin-left: 25px;
-  margin-bottom: 45px;
+
+.dash-title {
+  margin: 45px;
   color: $black;
 }
 
-
-
-
+.tab-pane {
+  h1 {
+    margin: 45px;
+    color: $black;
+  }
+}

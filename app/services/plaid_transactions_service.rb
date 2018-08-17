@@ -3,28 +3,35 @@ class PlaidTransactionsService
     @public_token = public_token
   end
 
-  def subscription_transactions
+  def request_plaid_data
     exchange_response = client.item.public_token.exchange(@public_token)
     access_token = exchange_response.access_token
-    transactions = request_transactions(access_token)
-    filter_transactions(transactions)
+    plaid_data = request_transactions(access_token)
   end
 
   def request_transactions(access_token)
     now = Date.today
     start_date = now - 365
     begin
-      transactions_response = client.transactions.get(access_token, start_date, now)
+      plaid_data_response = client.transactions.get(access_token, start_date, now)
     rescue Plaid::ItemError => e
-      transactions_response = { error: {error_code: e.error_code, error_message: e.error_message}}
+      plaid_data_response = { error: {error_code: e.error_code, error_message: e.error_message}}
     end
-    PlaidItem.create(user: User.last, item: transactions_response.to_json)
-    transactions_response.as_json['transactions']
+    plaid_data_response.as_json
   end
 
-  def filter_transactions(transactions)
+  def account_names(plaid_data)
+    account_names = []
+    byebug
+    plaid_data['accounts'].each do |account|
+      account_names << account['name']
+    end
+    account_names.uniq
+  end
+
+  def filter_transactions(plaid_data)
     filtered_transactions = []
-    transactions.each do |transaction|
+    plaid_data['transactions'].each do |transaction|
       if filter_by_category(transaction) || filter_by_name(transaction)
         filtered_transactions << transaction
       end
@@ -37,7 +44,7 @@ class PlaidTransactionsService
   end
 
   def filter_by_name(transaction)
-    transaction_filters = ["McDonald", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS"]
+    transaction_filters = ["MCDONALD", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
     transaction_filters.any? { |search_item| transaction['name'].downcase.include? search_item.downcase }
   end
 

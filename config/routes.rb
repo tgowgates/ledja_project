@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'plaid_api/new'
   get 'pages/show', to: 'pages#show'
   post '/callback', to: 'plaid_api#callback'
+  get 'accounts', to: "accounts#index"
 end

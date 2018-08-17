@@ -41,6 +41,20 @@
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
 }
 
+.card-legend {
+  max-width: 1000px;
+  border-bottom: 1px solid $lighter-gray;
+  margin: 0px 25px 10px 25px ;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  p {
+    margin-bottom: 1px;
+  }
+}
+
+
 .card-content {
   display: flex;
   align-content: space-around;

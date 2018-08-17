@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
-    # @current_user = current_user
+    @current_user = current_user
     # # figure out if the user is running for first time
     # # first run true/false
 
@@ -18,12 +18,14 @@ class SubscriptionsController < ApplicationController
     #array of unique subsription names for current_user
     @descriptions = Transaction.where(user: current_user).pluck(:description).uniq
     #hash (description => last transaction) with last transaction for each subscription for current user
-    @lastTransactions = {}
+    @lastTransactions = []
     @descriptions.each do |desc|
-      @lastTransactions["desc"] = Transaction.where("user = ? AND description = ?", current_user, desc).order('date DESC').limit(1)
+      @lastTransactions << Transaction.where("user_id = ? AND description = ?", current_user.id, desc).order('date DESC').limit(1)[0]
     end
 
-    #exemple: you want amount for last trans with macdon @lastTransaction["macdo"].ammount
+    # @lastTransactions
+
+    #exemple: you want amount   for last trans with mcdonald @lastTransaction["mcdonald"].ammount
 
     # divide filtered transactions into subscriptions (filter to unique transaction name)
     # save subscriptions into subscription database

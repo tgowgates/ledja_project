@@ -22,7 +22,6 @@ class PlaidTransactionsService
 
   def account_names(plaid_data)
     account_names = []
-    byebug
     plaid_data['accounts'].each do |account|
       account_names << account['name']
     end

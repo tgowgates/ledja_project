@@ -1,25 +1,32 @@
-
-.container-sign {
-  height: 666px;
-}
-
-.container-signup {
-  height: 612px;
-}
-
-.log {
+.form-wrapper {
+  margin: 70px 0 115px 0;
   display: flex;
-  padding-top: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
-.sign {
+.form-content {
+  padding: 40px;
+  height: 536px;
+  width: 360px;
   background-color: white;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  .simple_form  {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.form-fields {
   text-align: center;
   justify-content: center;
   width: 360px;
   margin-right: auto;
   margin-left: auto;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
   border-radius: 5px;
   margin-top: 5%;
   padding-bottom: 20px;
@@ -71,7 +78,7 @@
     font-size: 16px;
     line-height: 1.428571429;
     color: white;
-    background-color: $positive-green;
+    background-color: $brand-blue;
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -81,6 +88,9 @@
     margin-right: auto;
 }
 
-.container-edit {
-  height: 481px
+
+.log {
+  display: flex;
+  padding-top: 10px;
 }
+

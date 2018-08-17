@@ -1,4 +1,4 @@
-class PlaidTransactionsService
+  class PlaidTransactionsService
   def initialize(public_token)
     @public_token = public_token
   end

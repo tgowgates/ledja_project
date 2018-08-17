@@ -12,15 +12,12 @@ class SubscriptionsController < ApplicationController
         # takexpl last transaction's amount
       #next payment: last transaction date + 1 month
 
-
-
-
     #array of unique subsription names for current_user
-    @descriptions = Transaction.where(user: current_user).pluck(:description).uniq
+    @descriptions = Transaction.where(user: @current_user).pluck(:description).uniq
     #hash (description => last transaction) with last transaction for each subscription for current user
     @lastTransactions = []
     @descriptions.each do |desc|
-      @lastTransactions << Transaction.where("user_id = ? AND description = ?", current_user.id, desc).order('date DESC').limit(1)[0]
+      @lastTransactions << Transaction.where("user_id = ? AND description = ?", @current_user.id, desc).order('date DESC').limit(1)[0]
     end
 
     # @lastTransactions

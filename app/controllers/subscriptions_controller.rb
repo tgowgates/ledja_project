@@ -20,6 +20,7 @@ class SubscriptionsController < ApplicationController
       @descriptions.each do |desc|
         @lastTransactions << Transaction.where("user_id = ? AND description = ?", @current_user.id, desc).order('date DESC').limit(1)[0]
       end
+      flash[:notice] = "Great news! Ledja found #{@descriptions.count} subscriptions"
     end
     # @lastTransactions
 

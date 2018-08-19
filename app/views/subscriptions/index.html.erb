@@ -22,61 +22,10 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="active">
           <h4 class="dash-title"><strong>My active subscriptions</strong></h4>
-          <%= render 'shared/card-col-legend' %>
-
-
-
-
-
-<% @lastTransactions.each do |transaction| %>
-  <div class="card-container">
-    <div class="card">
-      <img class="subscription-logo" src="http://pngimg.com/uploads/mcdonalds/mcdonalds_PNG9.png">
-      <div class="card-column subscription-company-name hidden-xs hidden-sm">
-        <h3><strong><%= transaction.description %></strong>
-        </h3>
-        <p><%= transaction.category %></p>
-      </div>
-      <div class="card-column cost-column">
-        <h4><%= transaction.amount %> /month <h4>
-        <p>€<%= transaction.amount * 12 %> /y</p>
-      </div>
-      <div class="card-column next-payment-column hidden-xs hidden-sm">
-        <h4>10 days</h4>
-        <p>13/09/18</p>
-      </div>
-      <div class="card-column saving-column hidden-xs">
-        <h4>€35/y</h4>
-      </div>
-      <div class="card-column switch-column hidden-xs">
-        <style>
-          .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
-          .toggle.ios .toggle-handle { border-radius: 20px; }
-        </style>
-        <input type="checkbox" checked data-toggle="toggle" data-style="ios">
-        <style>
-          .toggle.android { border-radius: 0px;}
-          .toggle.android .toggle-handle { border-radius: 0px; }
-        </style>
-      </div>
-  <!--     <div><i class="fas fa-ellipsis-v three-dots btn"></i></div> -->
-    </div>
-  </div>
-  <script>
-    $(document).on('ready page:change', function() {
-      $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
-    });
-  </script>
-<% end %>
-
-
-
-
-
-        </div>
-        <div role="tabpanel" class="tab-pane" id="inactive">
-          <h4 class="dash-title"><strong>My inactive subscriptions</strong></h4>
-          <%= render 'shared/card' %>
+          <% if @lastTransactions !=nil %>
+            <%= render 'shared/card-col-legend' %>
+            <%= render 'shared/card' %>
+          <% end %>
         </div>
         <div role="tabpanel" class="tab-pane" id="manage">
           <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
@@ -86,29 +35,33 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-<script>
-(function($) {
-    var handler = Plaid.create({
+<div class="plaid-link-script">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+  <script>
+    (function($) {
+      var handler = Plaid.create({
         apiVersion: 'v2',
         clientName: 'Ledja',
         env: 'sandbox',
         product: ['transactions'],
         key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
         onSuccess: function(public_token) {
-            $.post('/callback', { public_token: public_token }, function() {
+          $.post('/callback', { public_token: public_token },
+            function() {
+              alert("<%= @current_user.email %>");
+              location.reload();
             });
-        },
-    });
+          },
+        });
+      document.addEventListener('DOMContentLoaded', function(e) {
+        if (document.getElementById('existing-user') == undefined) {
+          handler.open();
+        }
+      });
+    })(jQuery);
+  </script>
+</div>
 
-    // if document.querySeletor() != 'undefined'
-    document.addEventListener('DOMContentLoaded', function(e) {
-      if (document.getElementById('existing-user') == undefined) {
-        handler.open();
-      }
-    });
-  })(jQuery);
-</script>
 
 

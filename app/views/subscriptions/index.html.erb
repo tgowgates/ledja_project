@@ -1,41 +1,11 @@
-<div class="flex-container" id="<%='existing-user' if @current_user.api_last_run !=nil %>">
-  <div class="sidebar flex-container hidden-xs">
-    <div class="flex item dash-tab" title="active">
-      <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
-        <i class="far fa-credit-card fa-2x"></i>
-      <% end %>
-    </div>
-    <div class="flex item dash-tab" title="inactive">
-      <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
-        <i class="far fa-credit-card fa-2x"></i>
-      <% end %>
-    </div>
-
-    <div class="flex item dash-tab" title="manage">
-      <%= link_to "#manage", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'manage' do %>
-        <i class="far fa-credit-card fa-2x"></i>
-      <% end %>
-    </div>
+<% if @current_user.api_last_run.nil? %>
+  <!-- load css spinner -->
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
   </div>
-  <div class="main-content">
-    <div class="col-xs-12">
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="active">
-          <h4 class="dash-title"><strong>My active subscriptions</strong></h4>
-          <% if @lastTransactions !=nil %>
-            <%= render 'shared/card-col-legend' %>
-            <%= render 'shared/card' %>
-          <% end %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="manage">
-          <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="plaid-link-script">
+  <!-- load plaid api js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
   <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
   <script>
@@ -49,19 +19,55 @@
         onSuccess: function(public_token) {
           $.post('/callback', { public_token: public_token },
             function() {
-              alert("<%= @current_user.email %>");
               location.reload();
             });
           },
         });
       document.addEventListener('DOMContentLoaded', function(e) {
-        if (document.getElementById('existing-user') == undefined) {
           handler.open();
-        }
       });
     })(jQuery);
   </script>
-</div>
+<!-- else load html and controller instance variables -->
+<% else %>
+  <div class="flex-container" id="<%='existing-user' if @current_user.api_last_run !=nil %>">
+    <div class="sidebar flex-container hidden-xs">
+      <div class="flex item dash-tab" title="active">
+        <%= link_to "#active", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'active' do %>
+          <i class="far fa-credit-card fa-2x"></i>
+        <% end %>
+      </div>
+      <div class="flex item dash-tab" title="inactive">
+        <%= link_to "#inactive", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'inactive' do %>
+          <i class="far fa-credit-card fa-2x"></i>
+        <% end %>
+      </div>
+
+      <div class="flex item dash-tab" title="manage">
+        <%= link_to "#manage", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'manage' do %>
+          <i class="far fa-credit-card fa-2x"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="col-xs-12">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="active">
+            <h4 class="dash-title"><strong>My active subscriptions</strong></h4>
+            <% if @lastTransactions !=nil %>
+              <%= render 'shared/card-col-legend' %>
+              <%= render 'shared/card' %>
+            <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="manage">
+            <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 
 
 

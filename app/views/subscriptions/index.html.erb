@@ -34,6 +34,9 @@
         </div>
         <div role="tabpanel" class="tab-pane" id="manage">
           <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
+            <% @accounts.each do |account| %>
+              <ul> <%= account.name %></ul>
+            <% end %>
         </div>
       </div>
     </div>

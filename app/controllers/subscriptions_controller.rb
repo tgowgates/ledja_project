@@ -1,6 +1,9 @@
 class SubscriptionsController < ApplicationController
   def index
     @current_user = current_user
+    @accounts = Account.all
+    # figure out if the user is running for first time
+    # first run true/false
     # # figure out if the user is running for first time
     # # first run true/false
 
@@ -35,7 +38,6 @@ class SubscriptionsController < ApplicationController
     # show all subscriptions from @current_user
       #logo
       #name
-
 
   end
 

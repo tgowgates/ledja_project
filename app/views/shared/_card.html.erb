@@ -1,0 +1,94 @@
+<% @lastTransactions.each do |transaction| %>
+  <div class="card-container">
+    <div class="card">
+      <img class="subscription-logo" src="http://pngimg.com/uploads/mcdonalds/mcdonalds_PNG9.png">
+      <div class="card-column subscription-company-name hidden-xs hidden-sm">
+        <h3><strong><%= transaction.description %></strong>
+        </h3>
+        <p><%= transaction.category.first %></p>
+      </div>
+      <div class="card-column cost-column">
+        <h4><%= transaction.amount %> /month <h4>
+        <p>€<%= transaction.amount * 12 %> /y</p>
+      </div>
+      <div class="card-column next-payment-column hidden-xs hidden-sm">
+        <h4>10 days</h4>
+        <p>13/09/18</p>
+      </div>
+      <div class="card-column saving-column hidden-xs">
+        <h4>€35/y</h4>
+        <p>See Alternatives</p>
+      </div>
+      <div class="card-column switch-column hidden-xs">
+        <style>
+          .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+          .toggle.ios .toggle-handle { border-radius: 20px; }
+        </style>
+        <input type="checkbox" checked data-toggle="toggle" data-style="ios">
+        <style>
+          .toggle.android { border-radius: 0px;}
+          .toggle.android .toggle-handle { border-radius: 0px; }
+        </style>
+      </div>
+    </div>
+
+    <!-- Test Adding alternative subs -->
+
+    <div id="myDIV" class="card-alternatives-container">
+      <div class="card-alternatives">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-each-alternative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_Logo.svg/2000px-Burger_King_Logo.svg.png');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2>Burger King</h2>
+              <p>Student Deals</p>
+            </div>
+            <img class="card-user" src="">
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-each-alternative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i0.wp.com/lovelandmagazine.com/wp-content/uploads/2017/05/Chipotle-feature-w-lines.png?fit=1074%2C438');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2>Le Wagon Shanghai</h2>
+              <p>Very cool city, the best</p>
+            </div>
+            <img class="card-user" src="">
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-each-alternative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.webhostingreviewjam.com/wp-content/uploads/2013/02/cancel-subscription1.png');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2></h2>
+              <p></p>
+            </div>
+            <img class="card-user" src="">
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End alternative subs -->
+
+  </div>
+  <script>
+    $(document).on('ready page:change', function() {
+      $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
+    });
+
+    // on card click, add alternative packages to current subscription
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+    }
+  </script>
+<% end %>
+

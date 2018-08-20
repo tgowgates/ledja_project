@@ -63,7 +63,8 @@
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   border-right: solid;
-  border-color: $brand-blue;
+  border-bottom: none;
+  border-color: $medium-gray;
   transition: all 0.2s ease;
   cursor: pointer;
 }
@@ -119,6 +120,16 @@
   }
   p {
     color: $lighter-gray;
+  }
+}
+.saving-column:hover {
+  text-decoration: underline;
+  font-weight: lighter;
+  h4 {
+    text-decoration-color: $medium-gray;
+  }
+  p {
+    text-decoration-color: $lighter-gray;
   }
 }
 .next-payment-column {

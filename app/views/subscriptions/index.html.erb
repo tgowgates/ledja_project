@@ -44,7 +44,6 @@
           <i class="far fa-credit-card fa-2x"></i>
         <% end %>
       </div>
-
       <div class="flex item dash-tab" title="manage">
         <%= link_to "#manage", data: { toggle: 'tab'  }, role: 'tab', 'aria-controls' => 'manage' do %>
           <i class="far fa-credit-card fa-2x"></i>
@@ -62,6 +61,10 @@
           <div role="tabpanel" class="tab-pane" id="manage">
             <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
           </div>
+          <div role="tabpanel" class="tab-pane" id="inactive">
+          <h4 class="dash-title"><strong>My followed subscriptions</strong></h4>
+  <!-- RENDER FOLLOWED SUBSCRIPTION CARDS HERE -->
+        </div>
         </div>
       </div>
     </div>
@@ -69,5 +72,15 @@
 <% end %>
 
 
-
+<script>
+// on card click, add alternative packages to current subscription
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";
+  }
+}
+</script>
 

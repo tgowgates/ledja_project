@@ -10,6 +10,15 @@ class SubscriptionsController < ApplicationController
       @descriptions.each do |desc|
         @lastTransactions << Transaction.where("user_id = ? AND description = ?", @current_user.id, desc).order('date DESC').limit(1)[0]
       end
+      @lastTransactions.each do |uniq_trans|
+        new_user_subscription = UserSubscription.new(
+          name: uniq_trans.description,
+          user_id: @current_user.id,
+          reminder: false,
+          deal_notification: false,
+          status: "active")
+        new_user_subscription.save!
+      end
       # calculate the total spend on an annual basis
       sum = 0
       @lastTransactions.each do |transaction|

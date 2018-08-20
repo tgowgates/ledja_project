@@ -25,6 +25,7 @@
     plaid_data['accounts'].each do |account|
       account_details_hash[account['name']] = account['account_id']
     end
+    raise
     account_details_hash
   end
 

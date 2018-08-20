@@ -15,9 +15,12 @@
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
+
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= favicon_link_tag 'https://res.cloudinary.com/dxayumlub/image/upload/v1534359657/Ledja/favicon.ico' %>
+    <%= yield(:body_js) %>
   </body>
 </html>

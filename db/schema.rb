@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_135141) do
+ActiveRecord::Schema.define(version: 2018_08_20_154514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_135141) do
     t.bigint "subscription_package_id"
     t.boolean "reminder"
     t.boolean "deal_notification"
+    t.string "name"
     t.index ["subscription_package_id"], name: "index_user_subscriptions_on_subscription_package_id"
     t.index ["user_id"], name: "index_user_subscriptions_on_user_id"
   end

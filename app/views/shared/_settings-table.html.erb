@@ -9,45 +9,42 @@
       <th scope="col" class= "name">Cancel Link</th>
     </tr>
   </thead>
-  <tbody>
-    <% @lastTransactions.each do |transaction| %>
-      <tr>
-        <td class= "logo">
-          <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
-        </td>
-        <td class= "name"><h4><strong><%= transaction.description %></strong></h4></td>
-        <%= simple_form_for @user_subscription, class: 'toggles' do |f| %>
-          <td class= "toggle">
-              <%= f.input :reminder, as: :boolean
-%>
-
-          </td>
-          <td class= "toggle">
-          </td>
-          <td class= "toggle">
-            <input type="checkbox" name="deal_notification" data-toggle="toggle" data-style="ios">
-          </td>
-        <% end %>
-        <td class= "name">
-          Cancellation Link
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
 </table>
 
-<script>
-  $(document).on('ready page:change', function() {
-    var selector = 'input[type="checkbox"].toggle';
+<div class="dash-card">
+  <%= simple_form_for(@user_subscription) do |f| %>
+    <div>
+      <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+        data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+    </div>
+      <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+        data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+    <div>
+      <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+        data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+    </div>
+  <% end %>
+</div>
 
-    $(selector).bootstrapToggle(); // assumes the checkboxes have the class "toggle"
+<%= content_for :body_js do %>
+  <script>
+    $(document).ready(function() {
+      var selector = 'input[type="checkbox"].toggle';
 
-    $(selector).change(function(event) {
-      event.target
+      $(selector).change(function(event) {
+        console.log($(event.target).parents());
+      });
     });
-  });
-</script>
 
+    $(document).on('ready page:change', function() {
+      var selector = 'input[type="checkbox"].toggle';
 
+      $(selector).bootstrapToggle(); // assumes the checkboxes have the class "toggle"
 
-
+      $(selector).change(function(event) {
+        console.log('hi');
+        event.target
+      });
+    });
+  </script>
+<% end  %>

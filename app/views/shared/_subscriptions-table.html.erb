@@ -30,7 +30,9 @@
             .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
             .toggle.ios .toggle-handle { border-radius: 20px; }
           </style>
+
           <input type="checkbox" checked data-toggle="toggle" data-style="ios">
+
           <style>
             .toggle.android { border-radius: 0px;}
             .toggle.android .toggle-handle { border-radius: 0px; }
@@ -41,11 +43,6 @@
   </tbody>
 </table>
 
-<script>
-  $(document).on('ready page:change', function() {
-    $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
-  });
-</script>
 
 
 

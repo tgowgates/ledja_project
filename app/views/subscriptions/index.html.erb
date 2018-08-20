@@ -55,16 +55,16 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="active">
             <h4 class="dash-title"><strong>My active subscriptions</strong></h4>
-              <%= render 'shared/card-col-legend' %>
-              <%= render 'shared/card' %>
+              <%= render 'shared/subscriptions-table' %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="inactive">
+            <h4 class="dash-title"><strong>My followed subscriptions</strong></h4>
+              <!-- RENDER FOLLOWED SUBSCRIPTION CARDS HERE -->
           </div>
           <div role="tabpanel" class="tab-pane" id="manage">
             <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
+             <%= render 'shared/accounts-table' %>
           </div>
-          <div role="tabpanel" class="tab-pane" id="inactive">
-          <h4 class="dash-title"><strong>My followed subscriptions</strong></h4>
-  <!-- RENDER FOLLOWED SUBSCRIPTION CARDS HERE -->
-        </div>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
 <% end %>
 
 
-<script>
+<!-- <script>
 // on card click, add alternative packages to current subscription
 function myFunction() {
   var x = document.getElementById("myDIV");
@@ -82,5 +82,5 @@ function myFunction() {
       x.style.display = "none";
   }
 }
-</script>
+</script> -->
 

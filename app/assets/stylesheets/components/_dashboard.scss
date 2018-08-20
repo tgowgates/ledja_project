@@ -61,3 +61,28 @@
     color: $black;
   }
 }
+
+.dash-table {
+  max-width: 1200px;
+  margin: 0px 0px 10px 50px ;
+
+  th {
+    height: 0px !important;
+    text-align: right;
+  }
+  tr {
+    .data {
+      vertical-align: middle !important;
+      text-align: right;
+      height: 130px;
+    }
+    .name {
+      text-align: center;
+      vertical-align: middle !important;
+    }
+    .logo {
+      text-align: center;
+      vertical-align: middle !important;
+    }
+  }
+}

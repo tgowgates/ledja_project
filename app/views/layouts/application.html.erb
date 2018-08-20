@@ -16,9 +16,6 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <% if !current_page?(root_path) %>
-      <%=render 'shared/footer'%>
-    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= favicon_link_tag 'https://res.cloudinary.com/dxayumlub/image/upload/v1534359657/Ledja/favicon.ico' %>

@@ -1,4 +1,4 @@
-class PlaidTransactionsService
+  class PlaidTransactionsService
   def initialize(public_token)
     @public_token = public_token
   end
@@ -22,7 +22,6 @@ class PlaidTransactionsService
 
   def account_names(plaid_data)
     account_names = []
-    byebug
     plaid_data['accounts'].each do |account|
       account_names << account['name']
     end
@@ -44,7 +43,7 @@ class PlaidTransactionsService
   end
 
   def filter_by_name(transaction)
-    transaction_filters = ["MCDONALD", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
+    transaction_filters = ["MCDONALD", "United Airlines", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
     transaction_filters.any? { |search_item| transaction['name'].downcase.include? search_item.downcase }
   end
 

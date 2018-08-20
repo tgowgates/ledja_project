@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :plaid_items
   has_many :user_subscriptions
+  has_many :transactions
 end

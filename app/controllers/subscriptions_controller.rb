@@ -21,6 +21,8 @@ class SubscriptionsController < ApplicationController
         account = Account.where("plaid_account_id = ?", transaction.plaid_account_id)
         @account_names << account[0].name
       end
+
+
       flash[:notice] = "Ledja found #{@descriptions.count} subscriptions totalling $#{sum.to_i * 12} each year."
     end
   end

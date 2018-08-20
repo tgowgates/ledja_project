@@ -10,6 +10,8 @@
   </thead>
   <tbody>
     <% @lastTransactions.each do |transaction| %>
+      <% @subscriptionPackages = SubscriptionPackage.where("category == '%#{transaction.description}%'") %>
+
       <tr class='clickable-row' onclick="myFunction(<%= transaction.id %>)">
         <td class= "logo">
           <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
@@ -31,66 +33,26 @@
             <h4>Best alternatives to your <%= transaction.description%> subscription</h4>
             <div class="card-alternatives-container">
               <div class="card-alternatives">
-                <div class="col-xs-12 col-sm-4">
-                  <div class="alternative-card">
-                    <div class="alternative-card-image">
-                    </div>
-                    <div class="alternative-card-content">
-                      <p>Name</p>
-                      <div class="content-alternative">
-                        <div class="lemons">
-                          <i class="fas fa-lemon"></i>
-                          <p>Size</p>
-                        </div>
-                        <div class="skulls">
-                            <i class="fas fa-skull"></i>
-                            <i class="fas fa-skull"></i>
-                            <i class="fas fa-skull"></i>
+                <% @subscriptionPackages.each do |subscriptionp| %>
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="alternative-card">
+                      <div class="alternative-card-image">
+                        <%= image_tag subscriptionp.photo %>
+                      </div>
+                      <div class="alternative-card-content">
+                        <p><%= subscriptionp.name %></p>
+                        <div class="content-alternative">
+                          <div class="subscription-price">
+                            <p><%= subscriptionp.price %></p>
+                          </div>
+                          <div class="subscription-link">
+                            <%= link_to "Subscribe", subscriptionp.url %>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                  <div class="alternative-card">
-                    <div class="alternative-card-image">
-                    </div>
-                    <div class="alternative-card-content">
-                      <p>Name</p>
-                      <div class="content-alternative">
-                        <div class="lemons">
-                          <i class="fas fa-lemon"></i>
-                          <p>Size</p>
-                        </div>
-                        <div class="skulls">
-                            <i class="fas fa-skull"></i>
-                            <i class="fas fa-skull"></i>
-                            <i class="fas fa-skull"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                  <div class="alternative-card">
-                    <div class="alternative-card-image">
-                    </div>
-                    <div class="alternative-card-content">
-                      <p>Name</p>
-                      <div class="content-alternative">
-                        <div class="lemons">
-                          <i class="fas fa-lemon"></i>
-                          <p>Size</p>
-                        </div>
-                        <div class="skulls">
-                            <i class="fas fa-skull"></i>
-                            <i class="fas fa-skull"></i>
-                            <i class="fas fa-skull"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>

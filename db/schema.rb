@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_135141) do
+ActiveRecord::Schema.define(version: 2018_08_20_173650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2018_08_20_135141) do
     t.float "price"
     t.bigint "company_id"
     t.string "frequency"
+    t.string "photo"
+    t.string "url"
     t.index ["company_id"], name: "index_subscription_packages_on_company_id"
   end
 

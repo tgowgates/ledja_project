@@ -1,4 +1,4 @@
-  class PlaidTransactionsService
+class PlaidTransactionsService
   def initialize(public_token)
     @public_token = public_token
   end
@@ -43,7 +43,7 @@
   end
 
   def filter_by_name(transaction)
-    transaction_filters = ["MCDONALD", "United Airlines", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
+    transaction_filters = ["SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
     transaction_filters.any? { |search_item| transaction['name'].downcase.include? search_item.downcase }
   end
 
@@ -51,7 +51,7 @@
 
   def client
     @client ||= Plaid::Client.new(
-      env: :sandbox,
+      env: :development,
       client_id: ENV['PLAID_CLIENT_ID'],
       secret: ENV['PLAID_SECRET'],
       public_key: ENV['PLAID_PUBLIC_KEY']

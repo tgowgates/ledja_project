@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_173650) do
     t.bigint "subscription_package_id"
     t.boolean "reminder"
     t.boolean "deal_notification"
+    t.string "name"
     t.index ["subscription_package_id"], name: "index_user_subscriptions_on_subscription_package_id"
     t.index ["user_id"], name: "index_user_subscriptions_on_user_id"
   end

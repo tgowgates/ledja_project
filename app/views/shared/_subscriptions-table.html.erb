@@ -10,8 +10,7 @@
   </thead>
   <tbody>
     <% @lastTransactions.each do |transaction| %>
-      <% @subscriptionPackages = SubscriptionPackage.where("category == '%#{transaction.description}%'") %>
-
+      <% @subscriptionPackages = SubscriptionPackage.where(category: transaction.description) %>
       <tr class='clickable-row' onclick="myFunction(<%= transaction.id %>)">
         <td class= "logo">
           <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
@@ -61,13 +60,3 @@
     <% end %>
   </tbody>
 </table>
-
-<script>
-  $(document).on('ready page:change', function() {
-    $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
-  });
-</script>
-
-
-
-

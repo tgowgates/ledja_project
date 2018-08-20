@@ -100,3 +100,11 @@
     }
   }
 }
+
+.dash-card {
+  height: 70px;
+  max-width: 1000px;
+  display: flex;
+  align-items: space-around;
+  justify-content: space-around;
+}

@@ -1,0 +1,53 @@
+<table class="table table-hover dash-table">
+  <thead>
+    <tr>
+      <th scope="col" class= "logo">Company Logo</th>
+      <th scope="col" class= "name">Service Provider</th>
+      <th scope="col" class= "name">Mark <br>as Cancelled</br></th>
+      <th scope="col" class= "name">Monthly <br> reminder </br></th>
+      <th scope="col" class= "name">Notify when <br> new deals</br></th>
+      <th scope="col" class= "name">Cancel Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lastTransactions.each do |transaction| %>
+      <tr>
+        <td class= "logo">
+          <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
+        </td>
+        <td class= "name"><h4><strong><%= transaction.description %></strong></h4></td>
+        <%= simple_form_for @user_subscription, class: 'toggles' do |f| %>
+          <td class= "toggle">
+              <%= f.input :reminder, as: :boolean
+%>
+
+          </td>
+          <td class= "toggle">
+          </td>
+          <td class= "toggle">
+            <input type="checkbox" name="deal_notification" data-toggle="toggle" data-style="ios">
+          </td>
+        <% end %>
+        <td class= "name">
+          Cancellation Link
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  $(document).on('ready page:change', function() {
+    var selector = 'input[type="checkbox"].toggle';
+
+    $(selector).bootstrapToggle(); // assumes the checkboxes have the class "toggle"
+
+    $(selector).change(function(event) {
+      event.target
+    });
+  });
+</script>
+
+
+
+

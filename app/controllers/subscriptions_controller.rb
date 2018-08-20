@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
   def index
     @current_user = current_user
+    @user_subscription = UserSubscription.new
     # if transaction data exists
     if current_user.api_last_run != nil
       @descriptions = Transaction.where(user: @current_user).pluck(:description).uniq

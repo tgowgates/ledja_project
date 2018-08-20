@@ -11,20 +11,31 @@
   </thead>
 </table>
 
-<div class="dash-card">
-  <%= simple_form_for(@user_subscription) do |f| %>
-    <div>
-      <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
-        data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
-    </div>
-      <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
-        data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
-    <div>
-      <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
-        data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+<% current_user.user_subscriptions.each do |sub| %>
+  <%= simple_form_for(sub) do |f| %>
+    <div class="dash-card">
+      <div>
+        <%= sub.name %>
+      </div>
+        Service Provider
+      <div>
+      </div>
+      <div>
+        <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+          data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+      </div>
+        <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+          data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+      <div>
+        <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+          data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+      </div>
+      <div>
+        cancel link
+      </div>
     </div>
   <% end %>
-</div>
+<% end %>
 
 <%= content_for :body_js do %>
   <script>

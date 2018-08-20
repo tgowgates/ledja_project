@@ -1,4 +1,4 @@
-  class PlaidTransactionsService
+class PlaidTransactionsService
   def initialize(public_token)
     @public_token = public_token
   end
@@ -25,7 +25,6 @@
     plaid_data['accounts'].each do |account|
       account_details_hash[account['name']] = account['account_id']
     end
-    raise
     account_details_hash
   end
 
@@ -52,7 +51,7 @@
 
   def client
     @client ||= Plaid::Client.new(
-      env: :sandbox,
+      env: :development,
       client_id: ENV['PLAID_CLIENT_ID'],
       secret: ENV['PLAID_SECRET'],
       public_key: ENV['PLAID_PUBLIC_KEY']

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'subscriptions/index', to: 'subscriptions#index'
   devise_for :users
   root to: 'pages#home'
-  resources :user_subscriptions, only: [:new, :create]
+  resources :user_subscriptions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Adding routes for Plaid API
   get 'plaid_api/new'

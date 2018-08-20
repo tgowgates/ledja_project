@@ -57,40 +57,14 @@
             <h4 class="dash-title"><strong>My active subscriptions</strong></h4>
               <%= render 'shared/subscriptions-table' %>
           </div>
+          <div role="tabpanel" class="tab-pane" id="inactive">
+            <h4 class="dash-title"><strong>My followed subscriptions</strong></h4>
+              <!-- RENDER FOLLOWED SUBSCRIPTION CARDS HERE -->
+          </div>
           <div role="tabpanel" class="tab-pane" id="manage">
             <h4 class="dash-title"><strong>Manage my accounts</strong></h4>
-            <table class="table table-hover dash-table">
-              <thead>
-                <tr>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td><div class="flex-d align-items center">Jacob</td></div>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
+             <%= render 'shared/accounts-table' %>
           </div>
-          <div role="tabpanel" class="tab-pane" id="inactive">
-          <h4 class="dash-title"><strong>My followed subscriptions</strong></h4>
-  <!-- RENDER FOLLOWED SUBSCRIPTION CARDS HERE -->
-        </div>
         </div>
       </div>
     </div>

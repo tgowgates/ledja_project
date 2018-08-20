@@ -63,14 +63,24 @@
 }
 
 .dash-table {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0px 0px 10px 50px ;
 
   th {
     height: 0px !important;
-    text-align: right;
+    .data {
+      text-align: right;
+    }
   }
   tr {
+    .accounts {
+      height: 130px;
+      vertical-align: middle !important;
+    }
+    .logo-accounts {
+      text-align: left;
+      vertical-align: middle !important;
+    }
     .data {
       vertical-align: middle !important;
       text-align: right;

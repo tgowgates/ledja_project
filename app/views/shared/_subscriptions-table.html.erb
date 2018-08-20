@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <% @lastTransactions.each do |transaction| %>
-      <% @subscriptionPackages = SubscriptionPackage.where("category == '%#{transaction.description}%'") %>
+      <% @subscriptionPackages = SubscriptionPackage.where(category: transaction.description) %>
       <tr class='clickable-row' onclick="myFunction(<%= transaction.id %>)">
         <td class= "logo">
           <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>

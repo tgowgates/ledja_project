@@ -20,12 +20,12 @@
     plaid_data_response.as_json
   end
 
-  def account_names(plaid_data)
-    account_names = []
+  def account_name_and_id(plaid_data)
+    account_details_hash = {}
     plaid_data['accounts'].each do |account|
-      account_names << account['name']
+      account_details_hash[account['name']] = account['account_id']
     end
-    account_names.uniq
+    account_details_hash
   end
 
   def filter_transactions(plaid_data)

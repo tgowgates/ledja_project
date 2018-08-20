@@ -32,7 +32,7 @@
   background: radial-gradient(979.75px at 19.91% 13.29%, #4d3ff5 0%, #5fd4fa 100%);
   display: flex;
   align-items: center;
-  justify-contnet: center;
+  justify-content: center;
   color: white;
   text-align: center;
 }
@@ -43,4 +43,11 @@
 
 .no-nav-shadow {
   box-shadow: none;
+}
+
+#particles-js {
+  position: absolute;
+  width: 150%;
+  height: 86%;
+  background-color: transparent;
 }

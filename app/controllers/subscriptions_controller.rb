@@ -23,7 +23,11 @@ class SubscriptionsController < ApplicationController
       @descriptions.each do |desc|
         @lastTransactions << Transaction.where("user_id = ? AND description = ?", @current_user.id, desc).order('date DESC').limit(1)[0]
       end
-      flash[:notice] = "Great news! Ledja found #{@descriptions.count} subscriptions"
+      sum = 0
+      @lastTransactions.each do |transaction|
+        sum += transaction.amount
+      end
+      flash[:notice] = "Ledja found #{@descriptions.count} subscriptions totalling $#{sum.to_i * 12} each year."
     end
     # @lastTransactions
 

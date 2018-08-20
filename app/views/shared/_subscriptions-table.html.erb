@@ -12,7 +12,9 @@
   <tbody>
     <% @lastTransactions.each do |transaction| %>
       <tr>
-        <td class= "logo"><img class="subscription-logo" src="http://pngimg.com/uploads/mcdonalds/mcdonalds_PNG9.png"></td>
+        <td class= "logo">
+          <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
+        </td>
         <td class= "name"><h4><strong><%= transaction.description %></strong></h4></td>
         <td class= "data">
           <h4><%= transaction.amount %> /month <h4>

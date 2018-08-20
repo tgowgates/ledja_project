@@ -103,5 +103,3 @@ ActiveRecord::Schema.define(version: 2018_08_20_102202) do
   add_foreign_key "user_subscriptions", "subscription_packages"
   add_foreign_key "user_subscriptions", "users"
 end
-
-

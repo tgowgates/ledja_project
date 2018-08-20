@@ -31,9 +31,7 @@
         </style>
       </div>
     </div>
-
     <!-- Test Adding alternative subs -->
-
     <div id="myDIV" class="card-alternatives-container">
       <div class="card-alternatives">
         <div class="col-xs-12 col-sm-4">
@@ -71,24 +69,24 @@
         </div>
       </div>
     </div>
-
     <!-- End alternative subs -->
-
   </div>
-  <script>
-    $(document).on('ready page:change', function() {
-      $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
-    });
-
-    // on card click, add alternative packages to current subscription
-    function myFunction() {
-      var x = document.getElementById("myDIV");
-      if (x.style.display === "none") {
-          x.style.display = "block";
-      } else {
-          x.style.display = "none";
-      }
-    }
-  </script>
 <% end %>
+
+<script>
+  $(document).on('ready page:change', function() {
+    $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
+  });
+
+  // on card click, add alternative packages to current subscription
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+  }
+</script>
+
 

@@ -27,12 +27,12 @@ class SubscriptionsController < ApplicationController
         sum += transaction.amount
       end
       # create a list of unique account names
-      @account_names = []
+      account_names = []
       @lastTransactions.each do |transaction|
         account = Account.where("plaid_account_id = ?", transaction.plaid_account_id)
-        @account_names << account[0].name
+        account_names << account[0].name
       end
-
+      @account_names = account_names.uniq
 
       flash[:notice] = "Ledja found #{@descriptions.count} subscriptions totalling $#{sum.to_i * 12} each year."
     end

@@ -102,9 +102,32 @@
 }
 
 .dash-card {
-  height: 70px;
+  height: 100px;
   max-width: 1000px;
+  margin-left: 40px;
   display: flex;
-  align-items: space-around;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings {
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.sub-name-field {
+  flex: 0 0 150px !important;
+}
+
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+.toggle.ios .toggle-handle { border-radius: 20px; }
+
+.deal-tr {
+  display: none;
+}
+
+
+.deal-td {
+  padding: 0px !important;
 }

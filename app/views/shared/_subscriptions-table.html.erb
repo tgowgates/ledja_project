@@ -21,10 +21,36 @@
           <p>€<%= transaction.amount * 12 %> /y</p>
         </td class= "data">
         <td class= "data">
-          <h4>10 days</h4>
-          <p>13/09/18</p>
+          <h4>
+            <% if (transaction.date + 1.month - Date.today).to_i <= 0 %>
+              <%= (transaction.date + 2.month - Date.today).to_i %>
+            <% else %>
+              <%= (transaction.date + 1.month - Date.today).to_i %>
+            <% end %>
+            days
+          </h4>
+          <p>
+            <% if (transaction.date + 1.month) <= Date.today %>
+              <%= transaction.date + 2.month %>
+            <% else %>
+              <%= transaction.date + 1.month %>
+            <% end %>
+          </p>
         </td>
-        <td class= "data"><h4>€35/y</h4></td>
+        <td class= "data">
+          <% prices = [] %>
+         <% saving_amount = 0 %>
+          <% @subscriptionPackages.each do |alternative| %>
+            <% prices << alternative.price %>
+            <% best_alternative = prices.min %>
+            <% saving_amount = (transaction.amount - best_alternative)*12 %>
+          <% end %>
+          <% if saving_amount == 0 %>
+            <p>No alternatives</p>
+          <% else %>
+            <h4>€<%= saving_amount%>/y</h4>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="5" class="deal-td">

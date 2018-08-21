@@ -1,6 +1,7 @@
 class PlaidTransactionsService
-  def initialize(public_token)
+  def initialize(public_token, current_user)
     @public_token = public_token
+    @current_user = current_user
   end
 
   def request_plaid_data
@@ -43,18 +44,56 @@ class PlaidTransactionsService
   end
 
   def filter_by_name(transaction)
-    transaction_filters = ["SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
+    transaction_filters = ["McDonald", "United Airlines", "SPOTIFY", "AMAZON PRIME", "TPG INTERNET", "HULU", "NETFLIX", "SHOWTIME", "MOBILE", "AMAZON DIGITAL SVCS", "Google Storage"]
     transaction_filters.any? { |search_item| transaction['name'].downcase.include? search_item.downcase }
+  end
+
+  def save_filtered_transactions(filtered_transactions)
+    filtered_transactions.each do |transaction|
+      new_transaction = Transaction.new(
+        amount: transaction['amount'],
+        date: transaction['date'],
+        description: transaction['name'],
+        category: transaction['category'],
+        user_id: @current_user.id,
+        plaid_account_id: transaction['account_id'])
+      new_transaction.save!
+      @current_user.api_last_run = Date.today
+      @current_user.save
+    end
+  end
+
+  def save_user_subscriptions(filtered_transactions)
+    descriptions = []
+    filtered_transactions.each do |transaction|
+      descriptions << transaction['name']
+    end
+    descriptions.uniq.each do |uniq_trans_desc|
+      new_user_subscription = UserSubscription.new(
+        name: uniq_trans_desc,
+        user_id: @current_user.id,
+        reminder: false,
+        deal_notification: false,
+        status: "active")
+      new_user_subscription.save!
+      # connect user_subscription with the transaction
+    end
+  end
+
+  def save_account_name_and_id(account_name_and_id)
+    account_name_and_id.each do |account_name, plaid_account_id|
+      new_account = Account.new(name: account_name, plaid_account_id: plaid_account_id)
+      new_account.save!
+    end
   end
 
   private
 
   def client
     @client ||= Plaid::Client.new(
-      env: :development,
+      env: :sandbox,
       client_id: ENV['PLAID_CLIENT_ID'],
       secret: ENV['PLAID_SECRET'],
-      public_key: ENV['PLAID_PUBLIC_KEY']
-    )
+      public_key: ENV['PLAID_PUBLIC_KEY'] )
   end
 end

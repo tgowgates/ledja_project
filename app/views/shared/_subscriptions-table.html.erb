@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @lastTransactions.each do |transaction| %>
+    <% @last_transactions.each do |transaction| %>
       <% @subscriptionPackages = SubscriptionPackage.where(category: transaction.description) %>
       <tr class='clickable-row' onclick="myFunction(<%= transaction.id %>)">
         <td class= "logo">

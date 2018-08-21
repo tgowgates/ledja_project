@@ -11,7 +11,7 @@ SubscriptionPackage.create(
     name: "Netflix Basic",
     category: "Netflix",
     price: 7.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534846894/Netflix-Logo-png.png",
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534865339/Netflix_Web_Logo.png",
     url: "https://www.netflix.com/ChangePlan"
   )
  SubscriptionPackage.create(
@@ -42,7 +42,7 @@ SubscriptionPackage.create(
     name: "Netflix Basic",
     category: "Hulu",
     price: 7.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534846894/Netflix-Logo-png.png",
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534865339/Netflix_Web_Logo.png",
     url: "https://www.netflix.com/ChangePlan"
   )
 SubscriptionPackage.create(

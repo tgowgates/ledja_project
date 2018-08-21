@@ -68,10 +68,10 @@
                         <p><%= subscriptionp.name %></p>
                         <div class="content-alternative">
                           <div class="subscription-price">
-                            <p><%= subscriptionp.price %></p>
+                            <p>€<%= subscriptionp.price %>/month</p>
                           </div>
                           <div class="subscription-link">
-                            <%= link_to "Subscribe", subscriptionp.url %>
+                            <%= link_to "Subscribe", subscriptionp.url, target: :_blank %>
                           </div>
                         </div>
                       </div>

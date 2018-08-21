@@ -11,6 +11,9 @@
   padding: 0px;
   margin: 0px;
 }
+#details_214 h4 {
+  text-align: center;
+}
 
 // sam cards
 
@@ -34,8 +37,16 @@
 }
 
 .alternative-card-image {
-  border-radius:2px;
-  height: 150px;
+  display: flex;
+  flex-grow: 1;
+}
+.alternative-image-logo {
+  max-width: 150px;
+  max-height: 150px;
+  padding: 0px;
+  background: transparent;
+  background-size: contain;
+  align-self: center;
 }
 
 .alternative-card-content {
@@ -53,7 +64,7 @@
 
 .subscription-price {
   display: flex;
-  color: #84e8c2;
+  color: $green;
 }
 .subscription-link {
   color: $lighter-gray;
@@ -61,13 +72,13 @@
 
 .big_link {
   text-decoration: none !important;
-  color: #5C5C5C;
+  color: $brand-blue;
   &:hover {
   text-decoration: none !important;
-  color: #5C5C5C;
+  color: $brand-blue;
   }
   &:focus {
   text-decoration: none !important;
-  color: #5C5C5C;
+  color: $brand-blue;
   }
 }

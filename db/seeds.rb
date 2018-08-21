@@ -11,20 +11,22 @@ SubscriptionPackage.create(
     name: "Netflix Basic",
     category: "Netflix",
     price: 7.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534784378/ACSszfFzO4XqUIBEMm4bLoIbmAWT7-NyiFTgjHi22Q_s900-mo-c-c0xffffffff-rj-k-no.jpg",
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534846894/Netflix-Logo-png.png",
     url: "https://www.netflix.com/ChangePlan"
   )
  SubscriptionPackage.create(
     name: "Hulu Commercials",
-    category: "Netlfix",
+    category: "Netflix",
     price: 7.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534784342/nxa4lEyS_400x400.jpg"
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534847099/1280px-Hulu_logo_flat.svg.png",
+    url: "https://signup.hulu.com/plans"
   )
 SubscriptionPackage.create(
     name: "Amazon Video",
     category: "Netflix",
     price: 0,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534784400/Uq2Q-ded_400x400.jpg"
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534846833/0063934.png",
+    url: "https://www.primevideo.com/?ref=dvm_pds_amz_PT_lb_s_g%7Cc_267085804018_m_kQCs2syH-dc_s__"
   )
 
 
@@ -33,20 +35,22 @@ SubscriptionPackage.create(
     name: "Hulu Commercials",
     category: "Hulu",
     price: 7.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534784342/nxa4lEyS_400x400.jpg"
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534847099/1280px-Hulu_logo_flat.svg.png",
+    url: "https://signup.hulu.com/plans"
   )
  SubscriptionPackage.create(
     name: "Netflix Basic",
     category: "Hulu",
     price: 7.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534784378/ACSszfFzO4XqUIBEMm4bLoIbmAWT7-NyiFTgjHi22Q_s900-mo-c-c0xffffffff-rj-k-no.jpg",
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534846894/Netflix-Logo-png.png",
     url: "https://www.netflix.com/ChangePlan"
   )
 SubscriptionPackage.create(
     name: "HBO w/o TV",
     category: "Hulu",
     price: 14.99,
-    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534784428/hbo-logo.jpg"
+    photo: "https://res.cloudinary.com/dzcwxfufs/image/upload/v1534846743/1280px-HBO_logo.svg.png",
+    url: "https://www.hbo.com/order"
   )
 
 

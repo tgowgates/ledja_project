@@ -14,15 +14,19 @@
     width: 120px;
     background-color: white;
     border-right: 1px solid $lightest-gray;
+    list-style: none;
+
     i {
       color: $lighter-gray;
       font-size: 24px;
     }
   }
 
-  .dash-tab[title = "active"] {
-    i {
-      color: $dark-gray;
+  .dash-tab {
+    &.active {
+      i {
+        color: $dark-gray;
+      }
     }
   }
 

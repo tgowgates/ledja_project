@@ -1,26 +1,26 @@
 <table class="table table-hover dash-table">
   <thead>
     <tr>
-      <th scope="col" class= "logo">Company Logo</th>
-      <th scope="col" class= "name">Service Provider</th>
-      <th scope="col" class= "data">Price/month</th>
-      <th scope="col" class= "data">Next payment</th>
-      <th scope="col" class= "data">Alternatives <br>would save</br></th>
+      <th scope="col" class= "tb-left-align">Company Logo</th>
+      <th scope="col" class= "tb-left-align">Service Provider</th>
+      <th scope="col" class= "tb-right-align">Price/month</th>
+      <th scope="col" class= "tb-right-align">Next payment</th>
+      <th scope="col" class= "tb-right-align">Alternatives <br>would save</br></th>
     </tr>
   </thead>
   <tbody>
     <% @last_transactions.each do |transaction| %>
       <% @subscriptionPackages = SubscriptionPackage.where(category: transaction.description) %>
       <tr class='clickable-row' onclick="myFunction(<%= transaction.id %>)">
-        <td class= "logo">
+        <td class= "tb-left-align">
           <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
         </td>
-        <td class= "name"><h4><strong><%= transaction.description %></strong></h4></td>
-        <td class= "data">
+        <td class= "tb-left-align"><h4><strong><%= transaction.description %></strong></h4></td>
+        <td class= "tb-right-align">
           <h4><%= transaction.amount %> /month <h4>
           <p>€<%= transaction.amount * 12 %> /y</p>
-        </td class= "data">
-        <td class= "data">
+        </td class= "tb-right-align">
+        <td class= "tb-right-align">
           <h4>
             <% if (transaction.date + 1.month - Date.today).to_i <= 0 %>
               <%= (transaction.date + 2.month - Date.today).to_i %>
@@ -37,7 +37,7 @@
             <% end %>
           </p>
         </td>
-        <td class= "data">
+        <td class= "tb-right-align">
           <% prices = [] %>
          <% saving_amount = 0 %>
           <% @subscriptionPackages.each do |alternative| %>

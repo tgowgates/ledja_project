@@ -12,7 +12,7 @@
 </table>
 
 <% current_user.user_subscriptions.each do |sub| %>
-  <%= simple_form_for(sub) do |f| %>
+  <%= simple_form_for(sub)do |f| %>
     <div class="dash-card">
       <div class="subscription-logo settings">
         <%= image_tag("/logos/#{sub.name.parameterize}.png",  class: "subscription-logo")  %>
@@ -22,9 +22,9 @@
       </div>
       <div class="settings">
         <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
-          data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
+          data: { toggle: 'toggle', style: 'ios' }, id: 'reminder', class: 'toggle' %>
       </div>
-        <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+        <%= f.input_field :deal_notification, label: false, as: :boolean, class: 'form-control',
           data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
       <div class="settings">
         <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
@@ -41,20 +41,8 @@
   <script>
     $(document).ready(function() {
       var selector = 'input[type="checkbox"].toggle';
-
       $(selector).change(function(event) {
-        console.log($(event.target).parents());
-      });
-    });
-
-    $(document).on('ready page:change', function() {
-      var selector = 'input[type="checkbox"].toggle';
-
-      $(selector).bootstrapToggle(); // assumes the checkboxes have the class "toggle"
-
-      $(selector).change(function(event) {
-        console.log('hi');
-        event.target
+        $(event.target).parents().submit();
       });
     });
   </script>

@@ -6,8 +6,8 @@
 (function($) {
     var handler = Plaid.create({
         apiVersion: 'v2',
-        clientName: 'Plaid Walkthrough Demo',
-        env: 'sandbox',
+        clientName: 'Ledja',
+        env: 'development',
         product: ['transactions'],
         key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
         onSuccess: function(public_token) {

@@ -33,7 +33,7 @@ class SubscriptionsController < ApplicationController
     last_transactions.each do |transaction|
       sum += transaction.amount
     end
-    flash[:notice] = "Ledja found #{@last_transactions.count} subscriptions totalling $#{sum.to_i * 12} each year."
+    flash.now[:notice] = "Ledja found #{@last_transactions.count} subscriptions totalling $#{sum.to_i * 12} each year."
   end
 end
 

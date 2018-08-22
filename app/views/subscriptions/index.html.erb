@@ -1,4 +1,4 @@
-<% if @current_user.api_last_run.nil? %>
+ <% if @current_user.api_last_run.nil? %>
   <!-- load css spinner -->
   <div class="spinner-container">
     <div class="spinner">
@@ -15,7 +15,7 @@
       var handler = Plaid.create({
         apiVersion: 'v2',
         clientName: 'Ledja',
-        env: 'sandbox',
+        env: 'development',
         product: ['transactions'],
         key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
         onSuccess: function(public_token) {

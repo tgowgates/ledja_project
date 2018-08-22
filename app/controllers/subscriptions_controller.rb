@@ -23,7 +23,7 @@ class SubscriptionsController < ApplicationController
     account_names = []
     last_transactions.each do |transaction|
       account = Account.where("plaid_account_id = ?", transaction.plaid_account_id)
-      account_names << account[0].name
+      account_names << account[0].name unless account.blank?
     end
     account_names.uniq
   end

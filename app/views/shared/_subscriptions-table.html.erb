@@ -15,7 +15,7 @@
         <td class= "tb-tr-height tb-left-align">
           <%= image_tag("/logos/#{transaction.description.parameterize}.png",  class: "subscription-logo")  %>
         </td>
-        <td class= "tb-tr-height tb-left-align"><h4><strong><%= transaction.description %></strong></h4></td>
+        <td class= "tb-tr-height tb-left-align td-black"><h4><strong><%= transaction.description %></strong></h4></td>
         <td class= "tb-right-align">
           <h4><%= transaction.amount %> /month <h4>
           <p>$<%= (transaction.amount * 12).round(2) %> /y</p>
@@ -37,7 +37,7 @@
             <% end %>
           </p>
         </td>
-        <td class= "tb-tr-height tb-right-align">
+        <td class= "tb-tr-height tb-right-align td-black">
           <% prices = [] %>
          <% saving_amount = 0 %>
           <% @subscriptionPackages.each do |alternative| %>
@@ -48,7 +48,7 @@
           <% if saving_amount == 0 %>
             <p>No alternatives</p>
           <% else %>
-            <h4>$<%= saving_amount %>/y</h4>
+            <h4><strong>€<%= saving_amount%>/y</strong></h4>
           <% end %>
         </td>
       </tr>

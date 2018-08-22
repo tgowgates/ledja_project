@@ -1,4 +1,4 @@
 meta_product_name: "Ledja"
 meta_title: "Ledja - Track All Your Subscriptions"
 meta_description: "Track all your subscriptions in less than a minute"
-meta_image: "ledja-logo.png"                       # should exist in `app/assets/images/`
+meta_image: "meta-image-ledja.png"                       # should exist in `app/assets/images/`

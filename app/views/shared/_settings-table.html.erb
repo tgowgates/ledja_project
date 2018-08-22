@@ -18,7 +18,7 @@
         <%= image_tag("/logos/#{sub.name.parameterize}.png",  class: "subscription-logo")  %>
       </div>
       <div class="tb-left-align sub-name">
-        <h4><strong><%= sub.name %></strong></h4>
+        <h4><strong><%= sub.name.truncate_words(2).titleize %></strong></h4>
       </div>
       <div class="tb-right-align sub-toggle">
         <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',

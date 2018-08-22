@@ -17,32 +17,9 @@
       <tr>
         <td class="tb-tr-height tb-left-align account-logo"><i class="far fa-plus-square"></i></i></td>
         <td class="tb-tr-height tb-left-align account-name"><h4><strong>Add a new account</td></strong></h4>
-        <td><a href="#" id="add-api-call">Add Account</a></td>
+        <td><%= link_to "Add Account", plaid_api_new_path, class: "hidden-xs" %></td>
       </tr>
   </tbody>
 </table>
 
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-  <script>
-    (function($) {
-      var handler = Plaid.create({
-        apiVersion: 'v2',
-        clientName: 'Ledja',
-        env: 'sandbox',
-        product: ['transactions'],
-        key: '<%= ENV["PLAID_PUBLIC_KEY"] %>',
-        onSuccess: function(public_token) {
-          $.post('/callback', { public_token: public_token },
-            function() {
-              location.reload();
-            });
-          },
-        });
-      document.getElementById('add-api-call').addEventListener("click", function(e) {
-        handler.open();
-      });
-    })(jQuery);
-  </script>

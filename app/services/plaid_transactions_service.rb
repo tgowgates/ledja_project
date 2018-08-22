@@ -74,7 +74,7 @@ class PlaidTransactionsService
         user_id: @current_user.id,
         reminder: false,
         deal_notification: false,
-        status: "active")
+        cancelled: false)
       new_user_subscription.save!
       # connect user_subscription with the transaction
     end

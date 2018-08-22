@@ -3,9 +3,9 @@
     <tr>
       <th scope="col" class= "tb-left-align">Company Logo</th>
       <th scope="col" class= "tb-left-align">Service Provider</th>
-      <th scope="col" class= "tb-right-align">Mark <br>as Cancelled</br></th>
       <th scope="col" class= "tb-right-align">Monthly <br> reminder </br></th>
-      <th scope="col" class= "tb-right-align">Notify when <br> new deals</br></th>
+      <th scope="col" class= "tb-right-align">Notify <br> new deals</br></th>
+      <th scope="col" class= "tb-right-align">Mark as <br> Cancelled</br></th>
       <th scope="col" class= "tb-right-align">Cancel Link</th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@
           data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
       </div>
       <div class="tb-right-align sub-toggle">
-        <%= f.input_field :reminder, label: false, as: :boolean, class: 'form-control',
+        <%= f.input_field :cancelled, label: false, as: :boolean, class: 'form-control',
           data: { toggle: 'toggle', style: 'ios' }, id: 'test', class: 'toggle' %>
       </div>
       <div class="tb-right-align">
@@ -45,9 +45,9 @@
       var selector = 'input[type="checkbox"].toggle';
       $(selector).change(function(event) {
         $(event.target).parents().submit();
-        var element = $('<div id="flash fixed" class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>Settings updated</div>');
-        $('.navbar-ledja').after(element);
-        element.fadeOut({ duration: 2000 });
+        // var element = $('<div id="flash fixed" class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>Settings updated</div>');
+        // $('.navbar-ledja').after(element);
+        // element.fadeOut({ duration: 2000 });
       });
     });
   </script>

@@ -19,6 +19,6 @@ class UserSubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:user_subscription).permit(:reminder, :deal_notification)
+    params.require(:user_subscription).permit(:reminder, :deal_notification, :cancelled)
   end
 end

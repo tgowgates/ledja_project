@@ -1,12 +1,10 @@
 class SubscriptionsController < ApplicationController
   def index
     @current_user = current_user
-    if @current_user.api_last_run != nil
       @current_user.user_subscriptions
       @last_transactions = user_last_transactions
       @account_names = account_names(@last_transactions)
       flash_summary(@last_transactions)
-    end
   end
 
   def user_last_transactions

@@ -11,8 +11,12 @@
       <tr>
         <% if account_name == "Interest Checking" %>
           <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/citibank.png" alt="img crl " height="70" ></td>
-        <% else %>
+        <% elsif account_name == "Delta Reserve" %>
           <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/american-express.png" alt="img crl " height="70" ></td>
+        <% elsif account_name == "Platinum Delta SkyMiles®" %>
+          <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/american-express.png" alt="img crl " height="70" ></td>
+        <% else %>
+          <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/boxing-kangaroo.jpg" alt="img crl " height="70" ></td>
         <% end %>
         <td class="tb-tr-height tb-left-align account-name font-bold"><h4><%= account_name %></h4></td>
         <td class="hidden-xs"><a href="">Remove Account</a></td>

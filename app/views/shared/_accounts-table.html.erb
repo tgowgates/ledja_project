@@ -9,7 +9,11 @@
   <tbody>
     <% @account_names.each do |account_name|  %>
       <tr>
-        <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/american-express.png" alt="img crl " height="70" ></td>
+        <% if account_name == "Interest Checking" %>
+          <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/citibank.png" alt="img crl " height="70" ></td>
+        <% else %>
+          <td class="tb-tr-height tb-left-align account-logo"><img src="/logos/american-express.png" alt="img crl " height="70" ></td>
+        <% end %>
         <td class="tb-tr-height tb-left-align account-name"><h4><strong><%= account_name %></strong></h4></td>
         <td class="hidden-xs"><a href="">Remove Account</a></td>
       </tr>

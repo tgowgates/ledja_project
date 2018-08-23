@@ -39,7 +39,7 @@
         </td>
         <td class= "tb-tr-height tb-right-align hidden-xs">
           <% prices = [] %>
-         <% saving_amount = 0 %>
+          <% saving_amount = 0 %>
           <% @subscriptionPackages.each do |alternative| %>
             <% prices << alternative.price %>
             <% best_alternative = prices.min %>
@@ -53,13 +53,13 @@
         </td>
       </tr>
       <tr>
-        <td colspan="5" class="deal-td">
+        <td colspan="5" class="deal-td hidden-xs">
           <div id="<%= "details_#{transaction.id}" %>" class="text-center" style="display: none">
             <h4>Best alternatives to your <%= transaction.description%> subscription</h4>
             <div class="card-alternatives-container">
               <div class="card-alternatives">
                 <% @subscriptionPackages.each do |subscriptionp| %>
-                  <div class="col-xs-12 col-sm-4">
+                  <div>
                     <div class="alternative-card">
                       <div class="alternative-card-image">
                         <%= image_tag subscriptionp.photo, class: "alternative-image-logo" %>

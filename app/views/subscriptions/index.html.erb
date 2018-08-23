@@ -59,6 +59,14 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="active">
             <h4 class="dash-title"><strong>Active Subscriptions</strong></h4>
+            <p class="dash-total">
+              <% sum = 0 %>
+              <% @last_transactions.each do |transaction| %>
+                <% sum += transaction.amount %>
+              <% end %>
+              <%= "Ledja found " %><strong><%= "#{@last_transactions.count}" %></strong> <%= " subscriptions totalling "%><strong><%= "$#{number_with_delimiter(sum.to_i * 12, delimiter: ",")}" %></strong>  <%="each year." %>
+
+            </p>
               <%= render 'shared/subscriptions-table' %>
           </div>
           <div role="tabpanel" class="tab-pane" id="inactive">

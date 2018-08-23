@@ -57,8 +57,11 @@
 } */
 
 .dash-title {
-  margin: 45px;
+  margin: 45px 45px 15px 45px;
   color: $black;
+}
+.dash-total {
+  margin: 0px 45px 35px 45px;
 }
 
 .tab-pane {

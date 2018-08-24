@@ -1,0 +1,3 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["SU9do"]); }
+
+__d("MessengerGroupCreateDialog.react",["BootloadOnRender.react","JSResource","LazyComponent.react","React"],(function(a,b,c,d,e,f){"use strict";var g;g=babelHelpers.inherits(a,b("React").Component);g&&g.prototype;a.prototype.render=function(){return b("React").createElement(b("BootloadOnRender.react"),{component:b("React").createElement(b("LazyComponent.react"),{entryPoint:this.props.entryPoint,isShown:this.props.isShown,onClose:this.props.onClose}),loader:b("JSResource")("MessengerGroupCreateDialogImpl.react").__setRef("MessengerGroupCreateDialog.react"),placeholder:b("React").createElement("div",null)})};function a(){g.apply(this,arguments)}e.exports=a}),null);

@@ -10,7 +10,7 @@
           <div class="home-button-get-started">
             <% unless user_signed_in? %>
             <!-- Link when new session -->
-            <%= link_to "Get Started", new_user_registration_path , class: 'btn btn-primary btn-started' %>
+            <%= link_to "Get Started",  pages_aboutus_path , class: 'btn btn-primary btn-started' %>
             <% else %>
             <%= link_to "Get Started", subscriptions_index_path , class: 'btn btn-primary btn-started' %>
              <% end %>

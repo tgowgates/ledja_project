@@ -17,7 +17,7 @@
       <!-- Avatar with dropdown menu -->
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_up", default: "Sign-Up"), new_user_registration_path, class: "navbar-ledja-item navbar-ledja-link" %>
+      <%= link_to t(".sign_up", default: "Sign-Up"),  pages_aboutus_path, class: "navbar-ledja-item navbar-ledja-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-ledja-item navbar-ledja-link" %>
     <% end %>
   </div>
@@ -31,7 +31,7 @@
           <li> <%= link_to "Profile", edit_user_registration_path %></li>
           <li><a href="#">Log out</a></li>
         <% else %>
-          <li><%= link_to "Sign-Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign-Up",  pages_aboutus_path %></li>
           <li><%= link_to "Sign-In", new_user_session_path %></li>
         <% end %>
       </ul>
